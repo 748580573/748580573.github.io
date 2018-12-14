@@ -291,172 +291,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/09/spring集成mybatis/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr H">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/a.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/09/spring集成mybatis/" itemprop="url">spring集成mybatis</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-09T16:55:18+08:00">
-                2018-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/springs/" itemprop="url" rel="index">
-                    <span itemprop="name">springs</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="spring集成mybatis"><a href="#spring集成mybatis" class="headerlink" title="spring集成mybatis"></a>spring集成mybatis</h1><h2 id="集成集成iBATIS"><a href="#集成集成iBATIS" class="headerlink" title="集成集成iBATIS"></a>集成集成iBATIS</h2><p><b>Spring通过使用如下Bean进行集成iBATIS：</b></p>
-<p><b><li>SqlMapClientFactoryBean：用于集成iBATIS。</li></b></p>
-<p><b>configLocation和configLocations：用于指定SQL Map XML配置文件，用于指定如数据源等配置信息；</b></p>
-<p><b>mappingLocations：用于指定SQL Map映射文件，即半自动概念中的SQL语句定义；</b></p>
-<p><b>sqlMapClientProperties：定义iBATIS 配置文件配置信息；</b></p>
-<p><b>dataSource：定义数据源。</b></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"****"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.ibatis.SqlMapClientFactoryBean"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"****"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"configLocation"</span> <span class="attr">value</span>=<span class="string">"****"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="iBATIS配置文件"><a href="#iBATIS配置文件" class="headerlink" title="iBATIS配置文件"></a>iBATIS配置文件</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"</span></span><br><span class="line"><span class="meta">    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd"&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">sqlMapConfig</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">settings</span> <span class="attr">enhancementEnabled</span>=<span class="string">"true"</span> <span class="attr">useStatementNamespaces</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">maxTransactions</span>=<span class="string">"20"</span> <span class="attr">maxRequests</span>=<span class="string">"32"</span> <span class="attr">maxSessions</span>=<span class="string">"10"</span>/&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;<span class="name">typeAlias</span> <span class="attr">alias</span>=<span class="string">"DataSourceType"</span> <span class="attr">type</span>=<span class="string">"******"</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">typeHandler</span> <span class="attr">javaType</span>=<span class="string">"DataSourceType"</span> <span class="attr">callback</span>=<span class="string">"**"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">sqlMap</span> <span class="attr">resource</span>=<span class="string">"/***/**"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sqlMapConfig</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><b>这里讲一下<typehandler>标签的作用，在我们利用mybatis作为持久层框架存储数据时，从mybatis接收参数到mysql存储数据，都会用到typeHandler类型处理器。这也就是从JavaType-&gt;JdbcType的转化过程。由于mybatis初始时已经内置大部分基础类型转化的TypeHandler，已经足够我们平常的简单应用开发了，所以大多数情况下并不需要我们自己去定义类型转换器。但是，当遇到一些特殊情况时，为了开发的方便性，我们才回去自定义一些类型转换器。<b><br><b>使用场景：mybatis在预处理语句（PreparedStatement）中设置一个参数时，或者从结果集（ResultSet）中取出一个值时，都会用到TypeHandler。它的作用就是将java类型（javaType）转化为jdbc类型（jdbcType），或者将jdbc类型（jdbcType）转化为java类型（javaType）。</b><br><b>对TypeHandler接口的一些说明：<b></b></b></b></typehandler></b></p>
-<p><b>TypeHandler是一个接口，它定义了如下四个方法，实现类必须去实现，方法如下：</b></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setParameter</span><span class="params">(PreparedStatement var1, <span class="keyword">int</span> var2, T var3,     JdbcType var4)</span> <span class="keyword">throws</span> SQLException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">T <span class="title">getResult</span><span class="params">(ResultSet var1, String var2)</span> <span class="keyword">throws</span> SQLException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">T <span class="title">getResult</span><span class="params">(ResultSet var1, <span class="keyword">int</span> var2)</span> <span class="keyword">throws</span> SQLException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">T <span class="title">getResult</span><span class="params">(CallableStatement var1, <span class="keyword">int</span> var2)</span> <span class="keyword">throws</span> SQLException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><b>setParameter：通过preparedStatement对象设置参数，将T类型的数据存入数据库。</b></p>
-<p><b>getResult：通过列名或者下标来获取结果数据，也可以通过CallableStatement获取数据。</b></p>
-<p><b>自定义注解里还可以通过注解配置java类型和jdbc类型： </b><br><b>@MappedTypes() :注解配置java类型 </b><br><b>@MappedJdbcTypes()： 注解配置jdbc类型</b></p>
-<p><b>枚举类型的TypeHandler： </b><br><b>EnumOrdinalTypeHandler：使用枚举字符串名称作为参数传递。 </b><br><b>EnumTypeHandler：使用整数下标作为参数传递。</b></p>
-<p><b>为了实现自定义枚举类型的TypeHandler，我们通过性别（Sex）类型来进行演示：</b></p>
-<p><b>首先定义Sex类型的枚举，定义如下：</b></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Sex &#123;</span><br><span class="line"><span class="comment">//每一个类型都是一个枚举类（Sex）的实例</span></span><br><span class="line">    MALE(<span class="number">0</span>, <span class="string">"男"</span>),</span><br><span class="line">    FMALE(<span class="number">1</span>, <span class="string">"女"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//用于保存在数据库</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> SexCode;</span><br><span class="line">    <span class="comment">//用于UI展示</span></span><br><span class="line">    <span class="keyword">private</span> String SexName;</span><br><span class="line"></span><br><span class="line">    Sex(<span class="keyword">int</span> sexCode, String sexName) &#123;</span><br><span class="line">        SexCode = sexCode;</span><br><span class="line">        SexName = sexName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSexCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> SexCode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过SexCode的值来获取Sex枚举类型，数据库只需保存code，通过代码解析成Sex类型</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Sex <span class="title">getSexFromCode</span><span class="params">(<span class="keyword">int</span> code)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (Sex sex : Sex.values()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (sex.getSexCode() == code) &#123;</span><br><span class="line">                <span class="keyword">return</span> sex;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><b>如果我们不自定义TypeHandler，也可以通过mybatis内置的EnumOrdinalTypeHandler来进行类型转换，在mapper文件中的resultmap中进行如下配置：</b></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"sex"</span> <span class="attr">column</span>=<span class="string">"sex"</span> <span class="attr">typeHandler</span>=<span class="string">"org.apache.ibatis.type.EnumOrdinalTypeHandler"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<p><b>自定义枚举TypeHandler：</b></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SexTypeHandler</span> <span class="keyword">implements</span> <span class="title">TypeHandler</span>&lt;<span class="title">Sex</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setParameter</span><span class="params">(PreparedStatement preparedStatement, <span class="keyword">int</span> i, Sex sex, JdbcType jdbcType)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">        <span class="comment">//设置第i个参数的值为传入sex的code值，preparedStatement为执行数据库操纵的对象</span></span><br><span class="line">        <span class="comment">//传值的时候是一个sex对象，但是当进行映射插入的时候就会转化为sex的code值进行存储</span></span><br><span class="line">        preparedStatement.setInt(i, sex.getSexCode());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sex <span class="title">getResult</span><span class="params">(ResultSet resultSet, String s)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">        <span class="comment">//获取数据库存储的sex的code值</span></span><br><span class="line">        <span class="keyword">int</span> result = resultSet.getInt(s);</span><br><span class="line">        <span class="keyword">return</span> Sex.getSexFromCode(result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sex <span class="title">getResult</span><span class="params">(ResultSet resultSet, <span class="keyword">int</span> i)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result = resultSet.getInt(i);</span><br><span class="line">        <span class="keyword">return</span> Sex.getSexFromCode(result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Sex <span class="title">getResult</span><span class="params">(CallableStatement callableStatement, <span class="keyword">int</span> i)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result = callableStatement.getInt(i);</span><br><span class="line">        <span class="keyword">return</span> Sex.getSexFromCode(result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><b>最后需要在配置文件中运用我们自定义的TypeHandler对Sex进行类型转换：</b></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">"userMap"</span> <span class="attr">type</span>=<span class="string">"com.cbg.pojo.UserBean"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"id"</span> <span class="attr">column</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"userName"</span> <span class="attr">column</span>=<span class="string">"user_name"</span>/&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"birthday"</span> <span class="attr">column</span>=<span class="string">"birthday"</span>/&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"mobile"</span> <span class="attr">column</span>=<span class="string">"mobile"</span>/&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"email"</span> <span class="attr">column</span>=<span class="string">"email"</span>/&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"note"</span> <span class="attr">column</span>=<span class="string">"note"</span>/&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"sex"</span> <span class="attr">column</span>=<span class="string">"sex"</span> <span class="attr">javaType</span>=<span class="string">"com.cbg.Entity.Sex"</span> <span class="attr">jdbcType</span>=<span class="string">"INTEGER"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">typeHandler</span>=<span class="string">"com.cbg.handler.SexTypeHandler"</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><b>通过上面的配置，自定义的TypeHandler就会生效，对java中的Sex对象和数据库中的Integer进行自定转换。数据库只需存储Sex的code值，获取数据库数据时自动转化为Sex枚举对象，使用相当方便，也更加灵活。</b></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/09/在xml中搭建spirng-mvc/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1882,6 +1716,148 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/插入排序/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr H">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/23/插入排序/" itemprop="url">插入排序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-23T21:31:17+08:00">
+                2018-05-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/sort/" itemprop="url" rel="index">
+                    <span itemprop="name">sort</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><h2 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h2><p>与选择排序一样，当前索引左边的所有元素都是有序的，但他们的最终位置还不确定，为了给更小的元素腾出空间，他们可能会被移动。但是当索引到达数组右端时，数组排序就完成了。</p>
+<h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Insertion</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">less</span><span class="params">(Comparable v,Comparable w)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> v.compareTo(w) &lt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span>  <span class="title">exch</span><span class="params">(Comparable[] a,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        Comparable t = a[i];</span><br><span class="line">        a[i] = a[j];</span><br><span class="line">        a[j] = t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> N = a.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; N;i++)&#123;</span><br><span class="line">            <span class="comment">//将a[i]插入到a[i-1],a[i-2],a[i-3]...之中</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i;j &gt; <span class="number">0</span> &amp;&amp; less(a[j],a[j - <span class="number">1</span>]);j--)&#123;</span><br><span class="line">                exch(a,j,j-<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1934,7 +1910,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1945,7 +1921,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -1956,7 +1932,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
