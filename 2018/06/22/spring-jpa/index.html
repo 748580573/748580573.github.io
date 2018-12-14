@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="spring,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Spring Data JPA 参考文档注：转发请标明出处 前言Spring Data JPA为Java Persistence  API（JPA）提供存储库支持。 它简化了需要访问JPA数据源的应用程序的开发。 项目元数据Version controlBugtracker Release repository Milestone repositoryMilestone repository Sn">
+<meta name="keywords" content="spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-jpa 文档">
+<meta property="og:url" content="http://yoursite.com/2018/06/22/spring-jpa/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Spring Data JPA 参考文档注：转发请标明出处 前言Spring Data JPA为Java Persistence  API（JPA）提供存储库支持。 它简化了需要访问JPA数据源的应用程序的开发。 项目元数据Version controlBugtracker Release repository Milestone repositoryMilestone repository Sn">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-14T02:05:12.346Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring-jpa 文档">
+<meta name="twitter:description" content="Spring Data JPA 参考文档注：转发请标明出处 前言Spring Data JPA为Java Persistence  API（JPA）提供存储库支持。 它简化了需要访问JPA数据源的应用程序的开发。 项目元数据Version controlBugtracker Release repository Milestone repositoryMilestone repository Sn">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/22/spring-jpa/">
+
+
+
+
+
+  <title>spring-jpa 文档 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/748580573/"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-search"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/22/spring-jpa/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr H">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">spring-jpa 文档</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-22T15:50:05+08:00">
+                2018-06-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring/" itemprop="url" rel="index">
+                    <span itemprop="name">spring</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Spring-Data-JPA-参考文档"><a href="#Spring-Data-JPA-参考文档" class="headerlink" title="Spring Data JPA 参考文档"></a>Spring Data JPA 参考文档</h1><p><b>注：转发请标明出处</b></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><b>Spring Data JPA为Java Persistence  API（JPA）提供存储库支持。 它简化了需要访问JPA数据源的应用程序的开发。</b></p>
+<h2 id="项目元数据"><a href="#项目元数据" class="headerlink" title="项目元数据"></a>项目元数据</h2><li><b><a href="http://github.com/spring-projects/spring-data-jpa" target="_blank" rel="noopener">Version control</a></b></li><br><li><b><a href="https://jira.spring.io/browse/DATAJPA" target="_blank" rel="noopener">Bugtracker </a></b></li><br><li><b><a href="https://repo.spring.io/libs-release" target="_blank" rel="noopener">Release repository </a></b></li><br><li><b><a href="https://repo.spring.io/libs-milestone" target="_blank" rel="noopener">Milestone repository</a></b></li><br><li><b><a href="https://repo.spring.io/libs-milestone" target="_blank" rel="noopener">Milestone repository </a></b></li><br><li><b><a href="https://repo.spring.io/libs-snapshot" target="_blank" rel="noopener">Snapshot repository</a></b></li>
+
+<h2 id="值得关注的新东西"><a href="#值得关注的新东西" class="headerlink" title="值得关注的新东西"></a>值得关注的新东西</h2><h3 id="Spring-Data-JPA-1-11中的新特性"><a href="#Spring-Data-JPA-1-11中的新特性" class="headerlink" title="Spring Data JPA 1.11中的新特性"></a>Spring Data JPA 1.11中的新特性</h3><p><b>Spring Data JPA 1.11增加了以下功能：</b></p>
+<p><b><li>改进了与Hibernate 5.2的兼容性。</li></b><br><b><li>通过模板为查询支持任意匹配模式</li><b><br><b><li>优化了分页查询</li></b><br><b><li>为存储映射支持查询推导</li></b></b></b></p>
+<h3 id="Spring-Data-JPA-1-10中的新特性"><a href="#Spring-Data-JPA-1-10中的新特性" class="headerlink" title="Spring Data JPA 1.10中的新特性"></a>Spring Data JPA 1.10中的新特性</h3><p><b>Spring Data JPA 1.10增加了以下功能：</b></p>
+<li><b>支持存储映射支持查询方法</b></li><br><li><b>支持模板查询</b></li><br><li><b>下面的注释可以构建在组合的注释之上:@EntityGraph、@Lock、@ modify、@Query、@ queryhint和@Procedure。</b></li><br><li><b>支持包含有关集合表达式的关键字。</b></li><br><li><b>AttributeConverter实现了JSR-310的ZoneId和ThreeTenBP</b></li><br><li><b>Upgrade to Querydsl 4, Hibernate 5, OpenJPA 2.4, and EclipseLink 2.6.1.</b></li>
+
+<h3 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h3><li><b>由于各个Spring Data模块的初始日期不同，它们中的大多数都带有不同的主版本号和次版本号。找到兼容版本的最简单方法是依靠Spring Data Release Train BOM，我们将其与定义的兼容版本一起发布，在Maven项目中，您将在POM的<dependencymanagement>部分中声明这种依赖关系，如下所示：</dependencymanagement></b></li><br><b>ep1：使用Spring Data release train BOM</b><br><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.data<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-data-releasetrain<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;release-train&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure><br><br><b>目前的发行版本是Kay-SR8。 发行版名称按字母顺序上升，目前可用的发行版在此处列出。 版本名称遵循以下模式：$ {name} - $ {release}，其中release可以是下列之一：</b><br><br><li><b>BUILD-SNAPSHOT：快照</b></li><br><li><b>M1, M2等: 候选版</b></li><br><li><b>RELEASE：正式发布版</b></li><br><li><b>SR1, SR2等：服务版</b></li>
+
+<p><b>在我们的<a href="https://github.com/spring-projects/spring-data-examples/tree/master/bom" target="_blank" rel="noopener">Spring Data示例存储库</a>中可以找到使用BOM的一个工作示例。 有了这个，你可以在&lt;dependencies/ &gt;块中声明你想在没有版本的情况下使用Spring Data模块，如下所示</b></p>
+<p><b>ep2：声明Spring Data模块的依赖关系</b></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.data<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Spring-Boot的依赖管理"><a href="#Spring-Boot的依赖管理" class="headerlink" title="Spring Boot的依赖管理"></a>Spring Boot的依赖管理</h3><p><b>Spring Boot为您选择最新版本的Spring Data模块。 如果您仍想升级到更新版本，请将属性spring-data-releasetrain.version配置为您要使用的版本名称和版本号。</b></p>
+<h3 id="Spring-Framework"><a href="#Spring-Framework" class="headerlink" title="Spring Framework"></a>Spring Framework</h3><p><b>当前的Spring Data模块版本需要Spring Framework 5.0.7版本或更高版本。这些版本可以与旧版本以及次版本兼容，但是，强烈建议使用该代中的最新版本。</b></p>
+<h2 id="使用Spring-Data-Repositories"><a href="#使用Spring-Data-Repositories" class="headerlink" title="使用Spring Data Repositories"></a>使用Spring Data Repositories</h2><p><b>Spring Data repository抽象化的目的是减少各种持久性存储实现数据访问层所需的样板代码数量。</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">本章介绍Spring Data存储库的核心概念和接口。 本章中的信息来自Spring Data Commons模块。它使用Java Persistence API（JPA）模块的配置和代码示例。 您应该将XML</span><br><span class="line">命名空间声明和要扩展的类型调整为您使用的特定模块的等同项。  “Namespace reference”涵盖了所有支持repository API的Spring Data 模块的xml配置文件。</span><br></pre></td></tr></table></figure>
+<h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><p><b>Spring Data核心的接口是Repository,它需要将类和类的主键作为类型参数， 该接口主要作为标记接口来捕获要使用的类型，并帮助你扩展这接口。CrudRepository为需要管理的实体类提供复杂的CRUD功能。</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CrudRepository</span>&lt;<span class="title">T</span>, <span class="title">ID</span> <span class="keyword">extends</span> <span class="title">Serializable</span>&gt;</span></span><br><span class="line"><span class="class">  <span class="keyword">extends</span> <span class="title">Repository</span>&lt;<span class="title">T</span>, <span class="title">ID</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  &lt;S extends T&gt; <span class="function">S <span class="title">save</span><span class="params">(S entity)</span></span>;        <span class="comment">//  (1)</span></span><br><span class="line"></span><br><span class="line">  <span class="function">Optional&lt;T&gt; <span class="title">findById</span><span class="params">(ID primaryKey)</span></span>;   <span class="comment">//  (2)</span></span><br><span class="line"></span><br><span class="line">  <span class="function">Iterable&lt;T&gt; <span class="title">findAll</span><span class="params">()</span></span>;                <span class="comment">//  (3)</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">long</span> <span class="title">count</span><span class="params">()</span></span>;                         <span class="comment">//  (4) </span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">delete</span><span class="params">(T entity)</span></span>;               <span class="comment">//  (5)</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">boolean</span> <span class="title">existsById</span><span class="params">(ID primaryKey)</span></span>;   <span class="comment">//  (6)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// … more functionality omitted.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><b>(1)保存entity</b><br><b>(2)根据ID返回entity</b><br><b>(3)返回所有的entity</b><br><b>(4)返回entity的总数</b><br><b>(5)删除指定的entity</b><br><b>(6)查询指定ID的entity是否存在</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">     我们提供了特定的特定的持久性抽象技术，如JpaRepository或MongoRepository。这些接口扩展了CrudRepository并且暴露了深层次的持久性技术，以及通用未知的持久性技术接口，</span><br><span class="line">例如，CrudRepository。</span><br></pre></td></tr></table></figure>
+<p><b>在CrudRepository之上，有一个PagingAndSortingRepository抽象，它增加了额外的方法来简化对实体的分页访问：</b></p>
+<p><b>pg4：PagingAndSortingRepository 接口</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">PagingAndSortingRepository</span>&lt;<span class="title">T</span>, <span class="title">ID</span> <span class="keyword">extends</span> <span class="title">Serializable</span>&gt;</span></span><br><span class="line"><span class="class">  <span class="keyword">extends</span> <span class="title">CrudRepository</span>&lt;<span class="title">T</span>, <span class="title">ID</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function">Iterable&lt;T&gt; <span class="title">findAll</span><span class="params">(Sort sort)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function">Page&lt;T&gt; <span class="title">findAll</span><span class="params">(Pageable pageable)</span></span>;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><b>要访问分页大小为20，User数据的第二页，你可以执行一下操作：</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      PagingAndSortingRepository&lt;User, Long&gt; repository ;<span class="comment">// … get access to a bean</span></span><br><span class="line">      Page&lt;User&gt; users = repository.findAll(<span class="keyword">new</span> PageRequest(<span class="number">1</span>, <span class="number">20</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><b>除了查询方法外，count()与delete()也都扩展至查询方法，下面列出了怎么定义count接口。</b></p>
+<p><b>ep5：扩展count</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">CrudRepository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">long</span> <span class="title">countByLastname</span><span class="params">(String lastname)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><b>下面列出了怎么定义delete接口。</b></p>
+<p><b>ep6：扩展delete</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">CrudRepository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">long</span> <span class="title">deleteByLastname</span><span class="params">(String lastname)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function">List&lt;User&gt; <span class="title">removeByLastname</span><span class="params">(String lastname)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="query-方法"><a href="#query-方法" class="headerlink" title="query 方法"></a>query 方法</h3><p><b>标准CRUD功能存储库通常会在底层数据存储上进行查询。 使用Spring Data声明这些查询需要四个过程：</b></p>
+<p><b>1 声名一个Repository扩展接口或者其子类，它需要键入需要处理的domain class 和 ID,实例如下：</b><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">PersonRepository</span> <span class="keyword">extends</span> <span class="title">Repository</span>&lt;<span class="title">Person</span>, <span class="title">Long</span>&gt; </span>&#123; </span><br><span class="line">    <span class="comment">// … </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><b>2 通过在接口中声名查询方法</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">PersonRepository</span> <span class="keyword">extends</span> <span class="title">Repository</span>&lt;<span class="title">Person</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function">List&lt;Person&gt; <span class="title">findByLastname</span><span class="params">(String lastname)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><b>3 通过Spring的JavaConfig 或者 XML创建代理实例</b></p>
+<p><b>a 用JavaConfig创建class，像这样：</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.data.jpa.repository.config.EnableJpaRepositories;</span><br><span class="line"></span><br><span class="line"><span class="meta">@EnableJpaRepositories</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Config</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p><b>b 用XML创建class，像这样：</b></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xmlns:jpa</span>=<span class="string">"http://www.springframework.org/schema/data/jpa"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">     http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">     http://www.springframework.org/schema/data/jpa</span></span></span><br><span class="line"><span class="tag"><span class="string">     http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">jpa:repositories</span> <span class="attr">base-package</span>=<span class="string">"com.acme.repositories"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><b>这个例子中使用了JPA命名空间。如果你想为其他的数据库使用这个repository抽象，你需要为你使用的数据库modle改变相应的命名空间，换句话说，你需要改变jap支持，例如mongodb。<br><b>另外，请注意，JavaConfig没有显式地配置包，因为默认使用的是注释类的包。要自定义要扫描的包，请使用<code>basePackage…</code>指定的数据存储库的<code>@Enable${store}Repositories</code>注释的一个属性,例如<code>@EnableJpaRepositories</code></b></b></p>
+<p><b>注入存储库实例并使用它，如下面的示例所示</b><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClient</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> PersonRepository repository;</span><br><span class="line"></span><br><span class="line">  SomeClient(PersonRepository repository) &#123;</span><br><span class="line">    <span class="keyword">this</span>.repository = repository;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Person&gt; persons = repository.findByLastname(<span class="string">"Matthews"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><b>这部分详细解释每一步：</b></p>
+<li>定义Resposiroty接口</li><br><li>定义Query方法</li><br><li>创建Respository</li><br><li>Spring Data Repositories自定义实现</li>
+
+<h3 id="定义Resposiroty接口"><a href="#定义Resposiroty接口" class="headerlink" title="定义Resposiroty接口"></a>定义Resposiroty接口</h3><p><b>首先定义一个特定的domain类接口，这个接口必须扩展<code>Respository</code>并且键入domain类和ID(主键),如果你想暴露出该domain类的方发，则要扩展<code>CrudRepository</code>接口而不是<code>Repository</code>接口。</b></p>
+<h4 id="调整Respository定义"><a href="#调整Respository定义" class="headerlink" title="调整Respository定义"></a>调整Respository定义</h4><p><b>通常，您的存储库接口扩展了<code>Repository</code>，<code>CrudRepository</code>或<code>PagingAndSortingRepository</code>。 或者，如果您不想扩展Spring Data接口，也可以使用<code>@RepositoryDefinition</code>注释您的存储库接口。 扩展<code>CrudRepository</code>公开了一套完整的方法来操纵您的实体。如果您想有选择性的暴露一些方法，请从<code>CrudRepository</code>复制您想暴露的方法到你的domain Resposiroty。</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这样做可以让您在提供的Spring Data Repositories功能之上定义自己的抽象</span><br></pre></td></tr></table></figure>
+<p><b>下面的例子演示如何有选择性的暴露CRUD方法 (findById and save):</b></p>
+<p><b>ep7：选择性的暴露CRUD方法</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@NoRepositoryBean</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyBaseRepository</span>&lt;<span class="title">T</span>, <span class="title">ID</span> <span class="keyword">extends</span> <span class="title">Serializable</span>&gt; <span class="keyword">extends</span> <span class="title">Repository</span>&lt;<span class="title">T</span>, <span class="title">ID</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function">Optional&lt;T&gt; <span class="title">findById</span><span class="params">(ID id)</span></span>;</span><br><span class="line"></span><br><span class="line">  &lt;S extends T&gt; <span class="function">S <span class="title">save</span><span class="params">(S entity)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">MyBaseRepository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function">User <span class="title">findByEmailAddress</span><span class="params">(EmailAddress emailAddress)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><b>在前面的实例中，你为所有的domain resposiroty定义了一个公共的基本接口，并暴露出findById()和save()方法，这些方法可以追加到到您选择的基本的Spring Data的Resposiroty(例如，如果您使用JPA，实现是SimpleJpaRepository)的实现中去，所以，UserRepository现在可以保存用户，按ID查找单个用户，并通过电子邮件地址查询用户。</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">中间的repository接口（MyBaseRepository）用@NoRepositoryBean进行了注释。Spring DATA在运行时不会为这些接口（MyBaseRepository）创建实例。</span><br></pre></td></tr></table></figure>
+<h3 id="仓库方法的空处理"><a href="#仓库方法的空处理" class="headerlink" title="仓库方法的空处理"></a>仓库方法的空处理</h3><p><b>从Spring Data 2.0开始，Resporitory Crud方法使用java 8的<code>Optional</code>返回单个的聚合实例,以表示潜在的缺失值。此外，Spring Data支持在查询方法上返回以下包装器类型:<br><b><li><code>com.google.common.base.Optional</code></li></b><br><b><li><code>scala.Option</code></li></b><br><b><li><code>io.vavr.control.Option</code></li></b><br><b><li><code>javaslang.control.Option (deprecated as Javaslang is deprecated)</code></li></b></b></p>
+<p><b>另外，查询方法可以选择不使用包装类型，返回null表示没有查询结果，Repository方法返回collections，collection子类，wrappers和streams，它不会返回空，而是返回相应的null表示，有关详细信息，请参阅“<a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-return-types" target="_blank" rel="noopener">Repository Query返回类型</a>”</b></p>
+<h4 id="Nullability注释"><a href="#Nullability注释" class="headerlink" title="Nullability注释"></a>Nullability注释</h4><p><b>您可以使用Spring Framework的Nullability注释来表示存储库方法的可空约束。 它们提供了一个友好的工具方法，并在运行时选择性地进行空检查，如下所示：<br><b><li><a href="https://docs.spring.io/spring/docs/5.0.7.RELEASE/javadoc-api/org/springframework/lang/NonNullApi.html" target="_blank" rel="noopener">@NonNullApi</a>：一个普通的Spring注释，它声明参数和返回值在给定的包中默认为非空值。</li></b><br><b><li><a href="https://docs.spring.io/spring/docs/5.0.7.RELEASE/javadoc-api/org/springframework/lang/NonNull.html" target="_blank" rel="noopener">@NonNull</a>：一个常见的Spring注释声明注释的元素不能为空。</li></b><br><b><li><a href="https://docs.spring.io/spring/docs/5.0.7.RELEASE/javadoc-api/org/springframework/lang/Nullable.html" target="_blank" rel="noopener">@Nullable</a>：一个常见的Spring注释声明注释元素在某些情况下可以为null。</li></b></b></p>
+<p><b>JSR 305元注释允许工具供应商(如IDEA、Eclipse和Kotlin)以通用的方式提供null安全支持，而无需对Spring注释进行硬编码支持，要启用查询方法的可空性约束的运行时检查，您需要通过在package-info.java中使用Spring的@NonNullApi来激活包级别上的不可空性，如下例所示:</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@org</span>.springframework.lang.NonNullApi</span><br><span class="line"><span class="keyword">package</span> com.acme;</span><br></pre></td></tr></table></figure>
+<p><b>一旦存在非空默认值，repository query方法将在运行时验证可空性约束。如果查询执行结果违反了定义的约束，则会引发异常。默认情况下该注释定义在repository的包上。</b></p>
+<p><b>下面的例子展示了一些刚刚描述的技术。</b></p>
+<p><b>ep9：使用不同的nullability约束</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.acme;                                                          <span class="comment">//(1)    </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.lang.Nullable;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">Repository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function">User <span class="title">getByEmailAddress</span><span class="params">(EmailAddress emailAddress)</span></span>;                      <span class="comment">//(2)    </span></span><br><span class="line"></span><br><span class="line">  <span class="meta">@Nullable</span></span><br><span class="line">  <span class="function">User <span class="title">findByEmailAddress</span><span class="params">(@Nullable EmailAddress emailAdress)</span></span>;           <span class="comment">//(3)   </span></span><br><span class="line"></span><br><span class="line">  <span class="function">Optional&lt;User&gt; <span class="title">findOptionalByEmailAddress</span><span class="params">(EmailAddress emailAddress)</span></span>; <span class="comment">//(4) </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><b>(1)respository驻留在我们定义具有非空行为的包（或者子包下面） (我的理解是，这个注解是在com.acme或它的子包中使用了,嗯…emailAdress类是在这些包下定义的，如果我的理解有错，还请读者指出来)</b><br><b>(2)当执行的查询不产生结果时抛出EmptyResultDataAccessException，当传入的emailAddress为null时抛出IllegalArgumentException。</b><br><b>(3)当执行的查询不产生结果时返回null。 也可以为emailAddress传null值</b><br><b>(4)当查询没有结果时换回Optional.empty()，当emailAddress传入参数为空时抛出IllegalArgumentException</b></p>
+<h3 id="与多个Spring-data-module一起使用Respository"><a href="#与多个Spring-data-module一起使用Respository" class="headerlink" title="与多个Spring data module一起使用Respository"></a>与多个Spring data module一起使用Respository</h3><p><b>在应用程序中使用唯一的Spring数据模块使事情变得简单，因为在定义的范围中所有的Respository接口都绑定到Spring数据模块，有时，应用程序需要使用多个Spring Data模块。 在这种情况下，存储库定义必须区分持久性技术。当它在类路径中检测到多个Respository工厂时，Spring Data会进入严格的Resporitory配置模式。为Spring Data moudle绑定一个Respository需要为Respository或者domain 类使用严格的配置。</b></p>
+<ol><br><b><li type=""> 如果Respository扩展了一个特定的Respository，Spring data就可以集成并使用它。</li></b><br><b><li type=""> 如果domain类被指定类型的注解注解，则Spring DATA就可以集成使用它，Spring Data模块接受第三方注释（比如JPA的@Entity）或者提供他们自己的注释（比如@Document for Spring Data MongoDB和Spring Data Elasticsearch）。</li></b><br></ol>
+
+<p><b>以下示例显示使用特定的模块接口（本例中为JPA）的Respository：</b><br><b>ep11：用特定的模块接口定义Respository<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt; </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NoRepositoryBean</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyBaseRepository</span>&lt;<span class="title">T</span>, <span class="title">ID</span> <span class="keyword">extends</span> <span class="title">Serializable</span>&gt; <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">T</span>, <span class="title">ID</span>&gt; </span>&#123;</span><br><span class="line">  <span class="comment">//…</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">MyBaseRepository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line">  <span class="comment">//…</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></b></p>
+<p><b>Repository和UserRepository将JpaRepository扩展到它们的类型层次结构中。 它们可以在Spring Data JPA模块中被使用。</b></p>
+<p><b>以下示例演示使用通用的Repository接口</b><br><b>ep：12 使用通用接口定义Repository</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">AmbiguousRepository</span> <span class="keyword">extends</span> <span class="title">Repository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line"> <span class="comment">//…</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NoRepositoryBean</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyBaseRepository</span>&lt;<span class="title">T</span>, <span class="title">ID</span> <span class="keyword">extends</span> <span class="title">Serializable</span>&gt; <span class="keyword">extends</span> <span class="title">CrudRepository</span>&lt;<span class="title">T</span>, <span class="title">ID</span>&gt; </span>&#123;</span><br><span class="line">  <span class="comment">//…</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">AmbiguousUserRepository</span> <span class="keyword">extends</span> <span class="title">MyBaseRepository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line">  <span class="comment">//…</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><b><code>AmbiguousRepository</code>和<code>AmbiguousUserRepository</code>仅将<code>Repository</code>和<code>CrudRepository</code>扩展到它们的类型层次结构中。</b></p>
+<p><b>用注解定义Resporitory </b></p>
+<p><b>ep13：</b><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">PersonRepository</span> <span class="keyword">extends</span> <span class="title">Repository</span>&lt;<span class="title">Person</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line"> <span class="comment">//…</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="comment">//…</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">Repository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line"> <span class="comment">//…</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Document</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">  <span class="comment">//…</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><b>PersonRepository引用Person，它使用JPA @Entity注释进行注释，因此该Respository属于Spring Data JPA。UserRepository引用User，它使用Spring Data MongoDB的@Document注释进行注释。</b></p>
+<p><b>下面是一个不好的实例，该实例使用了混合的注释。</b></p>
+<p><b>ep：14</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">JpaPersonRepository</span> <span class="keyword">extends</span> <span class="title">Repository</span>&lt;<span class="title">Person</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line"> <span class="comment">//…</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MongoDBPersonRepository</span> <span class="keyword">extends</span> <span class="title">Repository</span>&lt;<span class="title">Person</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line"> <span class="comment">//…</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Document</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="comment">//…</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><b>此示例使用JPA和Spring Data MongoDB注释了domain class。这样它就定义了两个Respository，JpaPersonRepository和MongoDBPersonRepository。一个用于JPA，另一个用于MongoDB的使用，这样就会导致未定义的行为，以致Spring Data就不能区分出两个Respository。</b></p>
+<p><b>需要在domain class上严格的使用Respository注释，这样Spring Data才能识别它是哪个Respository。可以在domain类上使用多个关于持久性的技术，也可以在domain类上使用不同的Respository注解，但这样的话Spring Data就不能确定使用的是哪个Respository，这样是会出问题的。</b><br><b>区分Respository的最后一种方法是通过确定Respository基础包的范围。 基本软件包定义了扫描Respository接口的起点，这就暗示了repository是在哪个基础包下了。</b></p>
+<p><b>下面的理解演示用注解扫描基础包</b><br><b>ep15：</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableJpaRepositories</span>(basePackages = <span class="string">"com.acme.repositories.jpa"</span>)</span><br><span class="line"><span class="meta">@EnableMongoRepositories</span>(basePackages = <span class="string">"com.acme.repositories.mongo"</span>)</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Configuration</span> </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="查询方法定义"><a href="#查询方法定义" class="headerlink" title="查询方法定义"></a>查询方法定义</h3><p><b>repository 有两种代理方法去驱动指定存储查询方法。</b><br><b><li>直接通过查询的方法名来驱动</li></b><br><b><li>用自己写的方法</li></b></p>
+<p><b>有实际情况决定使用哪种方法，但是必须要有一种策略来判断创建什么类型的查询,等等我们会慢慢简绍有哪些可用的选项</b></p>
+<h4 id="查询策略"><a href="#查询策略" class="headerlink" title="查询策略"></a>查询策略</h4><p><b>以下是解决respository查询方法结构的策略， 通过XML配置，您可以通过query-lookup-strategy属性在命名空间配置策略。 对于Java配置，您可以使用Enable $ {store}存储库注释的queryLookupStrategy属性。 某些策略可能不支持特定的数据存储。</b><br><b><li><code>create</code>： 试图通过查询方法名称来创建查询。 通常的做法是删除指定的方法前缀然后解析剩下的方法名。指定方法前缀的文档“<a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.query-creation" target="_blank" rel="noopener">Query Creation</a>”.</li></b><br><b><li><code>USE_DECLARED_QUERY</code>：试图找到一个已声明的查询,如果找不到就抛出一个异常。查询可以通过某处的注释或其他方式声明。</li></b><br><b><li><code>CREATE_IF_NOT_FOUND</code>：结合了<code>CREATE</code>和<code>USE_DECLARED_QUERY</code>。 它首先查找已声明的查询，并且如果未找到已声明的查询，则会创建一个自定义的基于方法名称的查询。这是默认的查找策略，因此，如果您没有明确配置任何内容，就会使用它。 它允许通过方法名称进行快速查询定义，还可以根据需要引入已声明的查询来自定义这些查询。</li></b></p>
+<h4 id="创建查询方法"><a href="#创建查询方法" class="headerlink" title="创建查询方法"></a>创建查询方法</h4><p><b>Spring Data内置查询机制，他将带有 find…By, read…By, query…By, count…By, and get…By前缀从方法中剥离出来，然后解析其余部分。子句可以包含表达式，第一个by作为分隔符表示实际查询条件的开始。在一些简单查询中，你可以添加一些条件并将他们与and或or连接起来，下面的示例展示了如何创建多个查询:</b></p>
+<p><b>例 13. 根据方法名创建查询</b><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">PersonRepository</span> <span class="keyword">extends</span> <span class="title">Repository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function">List&lt;Person&gt; <span class="title">findByEmailAddressAndLastname</span><span class="params">(EmailAddress emailAddress, String lastname)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Enables the distinct flag for the query</span></span><br><span class="line">  <span class="function">List&lt;Person&gt; <span class="title">findDistinctPeopleByLastnameOrFirstname</span><span class="params">(String lastname, String firstname)</span></span>;</span><br><span class="line">  <span class="function">List&lt;Person&gt; <span class="title">findPeopleDistinctByLastnameOrFirstname</span><span class="params">(String lastname, String firstname)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Enabling ignoring case for an individual property</span></span><br><span class="line">  <span class="function">List&lt;Person&gt; <span class="title">findByLastnameIgnoreCase</span><span class="params">(String lastname)</span></span>;</span><br><span class="line">  <span class="comment">// Enabling ignoring case for all suitable properties</span></span><br><span class="line">  <span class="function">List&lt;Person&gt; <span class="title">findByLastnameAndFirstnameAllIgnoreCase</span><span class="params">(String lastname, String firstname)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Enabling static ORDER BY for a query</span></span><br><span class="line">  <span class="function">List&lt;Person&gt; <span class="title">findByLastnameOrderByFirstnameAsc</span><span class="params">(String lastname)</span></span>;</span><br><span class="line">  <span class="function">List&lt;Person&gt; <span class="title">findByLastnameOrderByFirstnameDesc</span><span class="params">(String lastname)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><b>解析方法的实际结果取决于您创建查询的数据库，有一些东西需要注意：</b><br><b><li>遍历表达式通常结合运算符连接。您可以把表达式 And 和 Or , Between , LessThan (不超过) , GreaterThan , Like 等运算符结合来用，这些操作对不同的数据库可能有所不同。</li></b><br><b><li>方法解析器支持为单个属性设置一个IgnoreCase标记(例如，findByLastnameIgnoreCase(…))或者忽略所有属性的大小写(通常是字符串实例——例如<code>findByLastnameAndFirstnameAllIgnoreCase(…)</code>),实际效果因使用的数据库不用而不同</li></b><br><b><li>你可以添加OrderBy为查询方法提供排序（Asc或Desc）“<a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.special-parameters" target="_blank" rel="noopener">Special parameter handling</a>”.</li></b></p>
+<p><b>更多干货，<a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-keywords" target="_blank" rel="noopener">点这里</a></b></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/spring/" rel="tag"># spring</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/20/spring-boot文档/" rel="next" title="spring-boot文档">
+                <i class="fa fa-chevron-left"></i> spring-boot文档
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/09/thymeleaf配置/" rel="prev" title="thymeleaf配置">
+                thymeleaf配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/a.jpg" alt="Mr H">
+            
+              <p class="site-author-name" itemprop="name">Mr H</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Data-JPA-参考文档"><span class="nav-number">1.</span> <span class="nav-text">Spring Data JPA 参考文档</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目元数据"><span class="nav-number">1.2.</span> <span class="nav-text">项目元数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#值得关注的新东西"><span class="nav-number">1.3.</span> <span class="nav-text">值得关注的新东西</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Data-JPA-1-11中的新特性"><span class="nav-number">1.3.1.</span> <span class="nav-text">Spring Data JPA 1.11中的新特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Data-JPA-1-10中的新特性"><span class="nav-number">1.3.2.</span> <span class="nav-text">Spring Data JPA 1.10中的新特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependencies"><span class="nav-number">1.3.3.</span> <span class="nav-text">Dependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot的依赖管理"><span class="nav-number">1.3.4.</span> <span class="nav-text">Spring Boot的依赖管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Framework"><span class="nav-number">1.3.5.</span> <span class="nav-text">Spring Framework</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Spring-Data-Repositories"><span class="nav-number">1.4.</span> <span class="nav-text">使用Spring Data Repositories</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#核心概念"><span class="nav-number">1.4.1.</span> <span class="nav-text">核心概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#query-方法"><span class="nav-number">1.4.2.</span> <span class="nav-text">query 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义Resposiroty接口"><span class="nav-number">1.4.3.</span> <span class="nav-text">定义Resposiroty接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#调整Respository定义"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">调整Respository定义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仓库方法的空处理"><span class="nav-number">1.4.4.</span> <span class="nav-text">仓库方法的空处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Nullability注释"><span class="nav-number">1.4.4.1.</span> <span class="nav-text">Nullability注释</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与多个Spring-data-module一起使用Respository"><span class="nav-number">1.4.5.</span> <span class="nav-text">与多个Spring data module一起使用Respository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询方法定义"><span class="nav-number">1.4.6.</span> <span class="nav-text">查询方法定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查询策略"><span class="nav-number">1.4.6.1.</span> <span class="nav-text">查询策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建查询方法"><span class="nav-number">1.4.6.2.</span> <span class="nav-text">创建查询方法</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr H</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

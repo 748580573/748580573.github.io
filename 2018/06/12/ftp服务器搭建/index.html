@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ftp服务器搭建(注)转自(https://www.cnblogs.com/popfisher/p/7992036.html)第一步：配置IIS Web服务器1.1 控制面板中找到“程序”并打开 1.2 程序界面找到“启用或关闭Windows功能”并打开 1.3 上面两步也可以简化为一步：按【Win + R】快捷键打开运行对话框，输入“optionalfeatures”后，按回车键 1.4 从“启">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ftp服务器搭建">
+<meta property="og:url" content="http://yoursite.com/2018/06/12/ftp服务器搭建/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ftp服务器搭建(注)转自(https://www.cnblogs.com/popfisher/p/7992036.html)第一步：配置IIS Web服务器1.1 控制面板中找到“程序”并打开 1.2 程序界面找到“启用或关闭Windows功能”并打开 1.3 上面两步也可以简化为一步：按【Win + R】快捷键打开运行对话框，输入“optionalfeatures”后，按回车键 1.4 从“启">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/1-1.jpg">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/1-2.jpg">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/1-3.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/1-4.jpg">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/1-5.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/2-1.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/2-2-1.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/2-2-2.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/2-2-3.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/2-2-4.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/2-2-5.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/2-2-5-1.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/2-2-5-2.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/3-1.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/3-2.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/3-2-1.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/3-3.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/3-4-1.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/3-4-2.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/3-4-2-1.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/3-4-2-2.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/3-4-2-3.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/3-4-3.png">
+<meta property="og:image" content="http://yoursite.com/image/build_ftp/3-4-3.png">
+<meta property="og:updated_time" content="2018-12-14T02:05:12.341Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ftp服务器搭建">
+<meta name="twitter:description" content="ftp服务器搭建(注)转自(https://www.cnblogs.com/popfisher/p/7992036.html)第一步：配置IIS Web服务器1.1 控制面板中找到“程序”并打开 1.2 程序界面找到“启用或关闭Windows功能”并打开 1.3 上面两步也可以简化为一步：按【Win + R】快捷键打开运行对话框，输入“optionalfeatures”后，按回车键 1.4 从“启">
+<meta name="twitter:image" content="http://yoursite.com/image/build_ftp/1-1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/12/ftp服务器搭建/">
+
+
+
+
+
+  <title>ftp服务器搭建 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/748580573/"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-search"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/12/ftp服务器搭建/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr H">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ftp服务器搭建</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-12T09:51:30+08:00">
+                2018-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/windows/" itemprop="url" rel="index">
+                    <span itemprop="name">windows</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="ftp服务器搭建"><a href="#ftp服务器搭建" class="headerlink" title="ftp服务器搭建"></a>ftp服务器搭建</h1><h4 id="注-转自-https-www-cnblogs-com-popfisher-p-7992036-html"><a href="#注-转自-https-www-cnblogs-com-popfisher-p-7992036-html" class="headerlink" title="(注)转自(https://www.cnblogs.com/popfisher/p/7992036.html)"></a>(注)转自(<a href="https://www.cnblogs.com/popfisher/p/7992036.html" target="_blank" rel="noopener">https://www.cnblogs.com/popfisher/p/7992036.html</a>)</h4><h2 id="第一步：配置IIS-Web服务器"><a href="#第一步：配置IIS-Web服务器" class="headerlink" title="第一步：配置IIS Web服务器"></a>第一步：配置IIS Web服务器</h2><h3 id="1-1-控制面板中找到“程序”并打开"><a href="#1-1-控制面板中找到“程序”并打开" class="headerlink" title="1.1 控制面板中找到“程序”并打开"></a>1.1 控制面板中找到“程序”并打开</h3><p><img src="/image/build_ftp/1-1.jpg" alt="图1-1"></p>
+<h3 id="1-2-程序界面找到“启用或关闭Windows功能”并打开"><a href="#1-2-程序界面找到“启用或关闭Windows功能”并打开" class="headerlink" title="1.2 程序界面找到“启用或关闭Windows功能”并打开"></a>1.2 程序界面找到“启用或关闭Windows功能”并打开</h3><p><img src="/image/build_ftp/1-2.jpg" alt="图1-2"></p>
+<h3 id="1-3-上面两步也可以简化为一步：按【Win-R】快捷键打开运行对话框，输入“optionalfeatures”后，按回车键"><a href="#1-3-上面两步也可以简化为一步：按【Win-R】快捷键打开运行对话框，输入“optionalfeatures”后，按回车键" class="headerlink" title="1.3 上面两步也可以简化为一步：按【Win + R】快捷键打开运行对话框，输入“optionalfeatures”后，按回车键"></a>1.3 上面两步也可以简化为一步：按【Win + R】快捷键打开运行对话框，输入“optionalfeatures”后，按回车键</h3><p><img src="/image/build_ftp/1-3.png" alt="图1-3"></p>
+<h3 id="1-4-从“启用或关闭Windows功能”弹窗中找到Internet-Information-Services-或者中文版Internet信息服务-并打开"><a href="#1-4-从“启用或关闭Windows功能”弹窗中找到Internet-Information-Services-或者中文版Internet信息服务-并打开" class="headerlink" title="1.4 从“启用或关闭Windows功能”弹窗中找到Internet Information Services(或者中文版Internet信息服务)并打开"></a>1.4 从“启用或关闭Windows功能”弹窗中找到Internet Information Services(或者中文版Internet信息服务)并打开</h3><p><img src="/image/build_ftp/1-4.jpg" alt="图1-4"></p>
+<h3 id="1-5-配置IIS并点击确定"><a href="#1-5-配置IIS并点击确定" class="headerlink" title="1.5 配置IIS并点击确定"></a>1.5 配置IIS并点击确定</h3><p><img src="/image/build_ftp/1-5.png" alt="图1-5"></p>
+<h2 id="第二步：配置IIS-Web站点"><a href="#第二步：配置IIS-Web站点" class="headerlink" title="第二步：配置IIS Web站点"></a>第二步：配置IIS Web站点</h2><h3 id="2-1-开始菜单搜索“IIS”并点击进入IIS管理器"><a href="#2-1-开始菜单搜索“IIS”并点击进入IIS管理器" class="headerlink" title="2.1 开始菜单搜索“IIS”并点击进入IIS管理器"></a>2.1 开始菜单搜索“IIS”并点击进入IIS管理器</h3><p><img src="/image/build_ftp/2-1.png" alt="图2-1"></p>
+<h3 id="2-2-新建FTP站点"><a href="#2-2-新建FTP站点" class="headerlink" title="2.2 新建FTP站点"></a>2.2 新建FTP站点</h3><h4 id="2-2-1-新建FTP服务器根目录文件夹"><a href="#2-2-1-新建FTP服务器根目录文件夹" class="headerlink" title="2.2.1 新建FTP服务器根目录文件夹"></a>2.2.1 新建FTP服务器根目录文件夹</h4><p><img src="/image/build_ftp/2-2-1.png" alt="图2-2-1"></p>
+<h4 id="2-2-2-查看本机ip地址，后续访问Ftp地址需要用到（打开cmd输入ipconfig）"><a href="#2-2-2-查看本机ip地址，后续访问Ftp地址需要用到（打开cmd输入ipconfig）" class="headerlink" title="2.2.2 查看本机ip地址，后续访问Ftp地址需要用到（打开cmd输入ipconfig）"></a>2.2.2 查看本机ip地址，后续访问Ftp地址需要用到（打开cmd输入ipconfig）</h4><p><img src="/image/build_ftp/2-2-2.png" alt="图2-2-2"></p>
+<h4 id="2-2-3-IIS网站管理器界面左边导航栏找到“网站”，右键弹出菜单"><a href="#2-2-3-IIS网站管理器界面左边导航栏找到“网站”，右键弹出菜单" class="headerlink" title="2.2.3 IIS网站管理器界面左边导航栏找到“网站”，右键弹出菜单"></a>2.2.3 IIS网站管理器界面左边导航栏找到“网站”，右键弹出菜单</h4><p><img src="/image/build_ftp/2-2-3.png" alt="图2-2-3"></p>
+<h4 id="2-2-4-IIS网站管理器“网站”右键弹出菜单点击“添加FTP站点”"><a href="#2-2-4-IIS网站管理器“网站”右键弹出菜单点击“添加FTP站点”" class="headerlink" title="2.2.4 IIS网站管理器“网站”右键弹出菜单点击“添加FTP站点”"></a>2.2.4 IIS网站管理器“网站”右键弹出菜单点击“添加FTP站点”</h4><p><img src="/image/build_ftp/2-2-4.png" alt="图2-2-4"></p>
+<h4 id="2-2-5-配置网站（网站名称：FtpSite-物理路径：E-ftpserver-本机IP地址-从下拉菜单选择-：192-168-0-105）"><a href="#2-2-5-配置网站（网站名称：FtpSite-物理路径：E-ftpserver-本机IP地址-从下拉菜单选择-：192-168-0-105）" class="headerlink" title="2.2.5 配置网站（网站名称：FtpSite 物理路径：E:\ftpserver 本机IP地址(从下拉菜单选择)：192.168.0.105）"></a>2.2.5 配置网站（网站名称：FtpSite 物理路径：E:\ftpserver 本机IP地址(从下拉菜单选择)：192.168.0.105）</h4><p> </p><p style="font-size:18px">Ftp站点名称和物理路径设置</p><br><img src="/image/build_ftp/2-2-5.png" alt="图2-2-5"><br> <p style="font-size:18px">IP 端口号 SSL设置</p><br><img src="/image/build_ftp/2-2-5-1.png" alt="图2-2-5-1"><br> <p style="font-size:18px">身份验证和授权信息设置</p><br> <img src="/image/build_ftp/2-2-5-2.png" alt="图2-2-5-2"><p></p>
+<h2 id="第三步：测试FTP站点（先在物理路径：E-ftpserver随便放一个文件）"><a href="#第三步：测试FTP站点（先在物理路径：E-ftpserver随便放一个文件）" class="headerlink" title="第三步：测试FTP站点（先在物理路径：E:\ftpserver随便放一个文件）"></a>第三步：测试FTP站点（先在物理路径：E:\ftpserver随便放一个文件）</h2><h3 id="3-1-浏览器或者文件管理器地址栏输入ftp地址（ftp-192-168-0-105）"><a href="#3-1-浏览器或者文件管理器地址栏输入ftp地址（ftp-192-168-0-105）" class="headerlink" title="3.1 浏览器或者文件管理器地址栏输入ftp地址（ftp://192.168.0.105）"></a>3.1 浏览器或者文件管理器地址栏输入ftp地址（<a href="ftp://192.168.0.105）" target="_blank" rel="noopener">ftp://192.168.0.105）</a></h3><p><img src="/image/build_ftp/3-1.png" alt="图3-1"><br>  </p><p style="font-size:18px">输入FTP地址时发现需要用户和密码（这个看情况，有些默认就可以直接访问了），可是配置的过程中好像没有看到设置用户和密码的步骤，没关系，我们可以自己设置。</p><p></p>
+<h3 id="3-2-IIS管理器中的FTP身份验证里面配置启用匿名身份认证（无密码）"><a href="#3-2-IIS管理器中的FTP身份验证里面配置启用匿名身份认证（无密码）" class="headerlink" title="3.2 IIS管理器中的FTP身份验证里面配置启用匿名身份认证（无密码）"></a>3.2 IIS管理器中的FTP身份验证里面配置启用匿名身份认证（无密码）</h3><p><img src="/image/build_ftp/3-2.png" alt="图3-2"><br><img src="/image/build_ftp/3-2-1.png" alt="图3-2-1"></p>
+<h3 id="3-3-再次测试，浏览器或者文件管理器地址栏输入ftp地址（ftp-192-168-0-105）"><a href="#3-3-再次测试，浏览器或者文件管理器地址栏输入ftp地址（ftp-192-168-0-105）" class="headerlink" title="3.3 再次测试，浏览器或者文件管理器地址栏输入ftp地址（ftp://192.168.0.105）"></a>3.3 再次测试，浏览器或者文件管理器地址栏输入ftp地址（<a href="ftp://192.168.0.105）" target="_blank" rel="noopener">ftp://192.168.0.105）</a></h3><p><img src="/image/build_ftp/3-3.png" alt="图3-3"></p>
+<h3 id="3-4-配置FTP站点用户名和密码"><a href="#3-4-配置FTP站点用户名和密码" class="headerlink" title="3.4 配置FTP站点用户名和密码"></a>3.4 配置FTP站点用户名和密码</h3><h4 id="3-4-1-IIS管理器中的FTP身份验证里面配置禁用匿名身份认证同时启用基本身份认证（再次访问就会要求输入用户名和密码）"><a href="#3-4-1-IIS管理器中的FTP身份验证里面配置禁用匿名身份认证同时启用基本身份认证（再次访问就会要求输入用户名和密码）" class="headerlink" title="3.4.1 IIS管理器中的FTP身份验证里面配置禁用匿名身份认证同时启用基本身份认证（再次访问就会要求输入用户名和密码）"></a>3.4.1 IIS管理器中的FTP身份验证里面配置禁用匿名身份认证同时启用基本身份认证（再次访问就会要求输入用户名和密码）</h4><p><img src="/image/build_ftp/3-4-1.png" alt="图3-4-1"></p>
+<h4 id="3-4-2-此电脑（桌面计算机图标右键）—-gt-管理-gt-本地用户和组-gt-用户-gt-新建一个用户，并设置密码"><a href="#3-4-2-此电脑（桌面计算机图标右键）—-gt-管理-gt-本地用户和组-gt-用户-gt-新建一个用户，并设置密码" class="headerlink" title="3.4.2 此电脑（桌面计算机图标右键）—&gt;管理-&gt;本地用户和组-&gt;用户-&gt;新建一个用户，并设置密码"></a>3.4.2 此电脑（桌面计算机图标右键）—&gt;管理-&gt;本地用户和组-&gt;用户-&gt;新建一个用户，并设置密码</h4><p><img src="/image/build_ftp/3-4-2.png" alt="图3-4-2"><br><img src="/image/build_ftp/3-4-2-1.png" alt="图3-4-2-1"><br><img src="/image/build_ftp/3-4-2-2.png" alt="图3-4-2-2"><br><img src="/image/build_ftp/3-4-2-3.png" alt="图3-4-2-3"><br> </p><p style="font-size:18px"><b>备注：</b>细心的你可以能已经发现这里的账户就是我们计算机的账户，所以说我们应该可以使用自己登录电脑的用户名和密码来登录FTP站点，不用新建这个test用户都可以。</p>
+<h3 id="3-4-3-再次测试，浏览器或者文件管理器地址栏输入ftp地址，输入用户名-test，密码-test（ftp-192-168-0-105）"><a href="#3-4-3-再次测试，浏览器或者文件管理器地址栏输入ftp地址，输入用户名-test，密码-test（ftp-192-168-0-105）" class="headerlink" title="3.4.3 再次测试，浏览器或者文件管理器地址栏输入ftp地址，输入用户名:test，密码:test（ftp://192.168.0.105）"></a>3.4.3 再次测试，浏览器或者文件管理器地址栏输入ftp地址，输入用户名:test，密码:test（<a href="ftp://192.168.0.105）" target="_blank" rel="noopener">ftp://192.168.0.105）</a></h3><p><img src="/image/build_ftp/3-4-3.png" alt="图3-4-2-3"><br><img src="/image/build_ftp/3-4-3.png" alt="图3-4-3-1"></p>
+<p></p><p style="font-size:18px">到此一个简单的FTP服务器搭建成功，同一个局域网内其他人可以访问到你的电脑了，可以相互传输文件。传输文件是一个用途，本文主要是想用来当做一个java 上传下载项目的测试服务器。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/27/堆排序/" rel="next" title="堆排序">
+                <i class="fa fa-chevron-left"></i> 堆排序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/13/shadowsocks-ssr说明/" rel="prev" title="shadowsocks ssr说明">
+                shadowsocks ssr说明 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/a.jpg" alt="Mr H">
+            
+              <p class="site-author-name" itemprop="name">Mr H</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ftp服务器搭建"><span class="nav-number">1.</span> <span class="nav-text">ftp服务器搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注-转自-https-www-cnblogs-com-popfisher-p-7992036-html"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">(注)转自(https://www.cnblogs.com/popfisher/p/7992036.html)</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：配置IIS-Web服务器"><span class="nav-number">1.1.</span> <span class="nav-text">第一步：配置IIS Web服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-控制面板中找到“程序”并打开"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 控制面板中找到“程序”并打开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-程序界面找到“启用或关闭Windows功能”并打开"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 程序界面找到“启用或关闭Windows功能”并打开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-上面两步也可以简化为一步：按【Win-R】快捷键打开运行对话框，输入“optionalfeatures”后，按回车键"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 上面两步也可以简化为一步：按【Win + R】快捷键打开运行对话框，输入“optionalfeatures”后，按回车键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-从“启用或关闭Windows功能”弹窗中找到Internet-Information-Services-或者中文版Internet信息服务-并打开"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.4 从“启用或关闭Windows功能”弹窗中找到Internet Information Services(或者中文版Internet信息服务)并打开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-配置IIS并点击确定"><span class="nav-number">1.1.5.</span> <span class="nav-text">1.5 配置IIS并点击确定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：配置IIS-Web站点"><span class="nav-number">1.2.</span> <span class="nav-text">第二步：配置IIS Web站点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-开始菜单搜索“IIS”并点击进入IIS管理器"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 开始菜单搜索“IIS”并点击进入IIS管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-新建FTP站点"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 新建FTP站点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-新建FTP服务器根目录文件夹"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">2.2.1 新建FTP服务器根目录文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-查看本机ip地址，后续访问Ftp地址需要用到（打开cmd输入ipconfig）"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">2.2.2 查看本机ip地址，后续访问Ftp地址需要用到（打开cmd输入ipconfig）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-3-IIS网站管理器界面左边导航栏找到“网站”，右键弹出菜单"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">2.2.3 IIS网站管理器界面左边导航栏找到“网站”，右键弹出菜单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-4-IIS网站管理器“网站”右键弹出菜单点击“添加FTP站点”"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">2.2.4 IIS网站管理器“网站”右键弹出菜单点击“添加FTP站点”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-5-配置网站（网站名称：FtpSite-物理路径：E-ftpserver-本机IP地址-从下拉菜单选择-：192-168-0-105）"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">2.2.5 配置网站（网站名称：FtpSite 物理路径：E:\ftpserver 本机IP地址(从下拉菜单选择)：192.168.0.105）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步：测试FTP站点（先在物理路径：E-ftpserver随便放一个文件）"><span class="nav-number">1.3.</span> <span class="nav-text">第三步：测试FTP站点（先在物理路径：E:\ftpserver随便放一个文件）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-浏览器或者文件管理器地址栏输入ftp地址（ftp-192-168-0-105）"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 浏览器或者文件管理器地址栏输入ftp地址（ftp://192.168.0.105）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-IIS管理器中的FTP身份验证里面配置启用匿名身份认证（无密码）"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 IIS管理器中的FTP身份验证里面配置启用匿名身份认证（无密码）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-再次测试，浏览器或者文件管理器地址栏输入ftp地址（ftp-192-168-0-105）"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3 再次测试，浏览器或者文件管理器地址栏输入ftp地址（ftp://192.168.0.105）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-配置FTP站点用户名和密码"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.4 配置FTP站点用户名和密码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-1-IIS管理器中的FTP身份验证里面配置禁用匿名身份认证同时启用基本身份认证（再次访问就会要求输入用户名和密码）"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">3.4.1 IIS管理器中的FTP身份验证里面配置禁用匿名身份认证同时启用基本身份认证（再次访问就会要求输入用户名和密码）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-2-此电脑（桌面计算机图标右键）—-gt-管理-gt-本地用户和组-gt-用户-gt-新建一个用户，并设置密码"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">3.4.2 此电脑（桌面计算机图标右键）—&gt;管理-&gt;本地用户和组-&gt;用户-&gt;新建一个用户，并设置密码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-3-再次测试，浏览器或者文件管理器地址栏输入ftp地址，输入用户名-test，密码-test（ftp-192-168-0-105）"><span class="nav-number">1.3.5.</span> <span class="nav-text">3.4.3 再次测试，浏览器或者文件管理器地址栏输入ftp地址，输入用户名:test，密码:test（ftp://192.168.0.105）</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr H</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

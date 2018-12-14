@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="httpclient,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="（注：该文档基于httpclient4.0+版本） 基本知识Request executionHttpClient最重要的功能是执行HTTP方法。执行HTTP方法涉及一个或多个HTTP请求/ HTTP响应交换，通常由HttpClient内部处理。用户需要提供一个request对象，Httpclient发送该对象到目标服务器，并返回一个相应的reponse对象，如果不成功则跑出异常HttpClien">
+<meta name="keywords" content="httpclient">
+<meta property="og:type" content="article">
+<meta property="og:title" content="httpclient参考文档">
+<meta property="og:url" content="http://yoursite.com/2018/07/27/httpclient参考文档/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="（注：该文档基于httpclient4.0+版本） 基本知识Request executionHttpClient最重要的功能是执行HTTP方法。执行HTTP方法涉及一个或多个HTTP请求/ HTTP响应交换，通常由HttpClient内部处理。用户需要提供一个request对象，Httpclient发送该对象到目标服务器，并返回一个相应的reponse对象，如果不成功则跑出异常HttpClien">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-14T02:05:12.342Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="httpclient参考文档">
+<meta name="twitter:description" content="（注：该文档基于httpclient4.0+版本） 基本知识Request executionHttpClient最重要的功能是执行HTTP方法。执行HTTP方法涉及一个或多个HTTP请求/ HTTP响应交换，通常由HttpClient内部处理。用户需要提供一个request对象，Httpclient发送该对象到目标服务器，并返回一个相应的reponse对象，如果不成功则跑出异常HttpClien">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/27/httpclient参考文档/">
+
+
+
+
+
+  <title>httpclient参考文档 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/748580573/"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-search"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/27/httpclient参考文档/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr H">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">httpclient参考文档</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-27T14:13:33+08:00">
+                2018-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/httpclient/" itemprop="url" rel="index">
+                    <span itemprop="name">httpclient</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><b style="font-size:18px">（注：该文档基于httpclient4.0+版本）</b></p>
+<h1 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h1><h2 id="Request-execution"><a href="#Request-execution" class="headerlink" title="Request execution"></a>Request execution</h2><p><b style="font-size:16px">HttpClient最重要的功能是执行HTTP方法。执行HTTP方法涉及一个或多个HTTP请求/ HTTP响应交换，通常由HttpClient内部处理。用户需要提供一个request对象，Httpclient发送该对象到目标服务器，并返回一个相应的reponse对象，如果不成功则跑出异常</b><br><br><br><b style="font-size:16px">HttpClient API的主要入口点是HttpClient接口,它实现了上述的规定</b><br><br><br><b style="font-size:16px">下面是最简的请求执行过程示例：</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CloseableHttpClient httpclient = HttpClients.createDefault();</span><br><span class="line">HttpGet httpget = <span class="keyword">new</span> HttpGet(<span class="string">"http://localhost/"</span>);</span><br><span class="line">CloseableHttpResponse response = httpclient.execute(httpget);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">&lt;...&gt;</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">response.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="HTTP-request"><a href="#HTTP-request" class="headerlink" title="HTTP request"></a>HTTP request</h2><p><b style="font-size:16px">所有HTTP请求都有一个请求行，包括方法名称，请求URI和HTTP协议版本。</b><br><br><br><b style="font-size:16px">HttpClient supports out of the box all HTTP methods defined in the HTTP/1.1 specification:  GET ,HEAD ,  POST ,  PUT ,  DELETE ,  TRACE and  OPTIONS . There is a specific class for each method type.:  HttpGet ,HttpHead ,  HttpPost ,  HttpPut ,  HttpDelete ,  HttpTrace , and  HttpOptions .</b><br><br><br><b style="font-size:16px">Request-URI是统一资源标识符，用于标识应用请求的资源。HTTP请求URI由协议方案，主机名，可选端口，资源路径，可选查询和可选片段组成。</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HttpGet httpget = <span class="keyword">new</span> HttpGet(<span class="string">"http://www.google.com/search?hl=en&amp;q=httpclient&amp;btnG=Google+Search&amp;aq=f&amp;oq="</span>);</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">HttpClient提供了URIBuilder实体类，以简化请求URI的创建和修改。</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">URI uri = <span class="keyword">new</span> URIBuilder()</span><br><span class="line">.setScheme(<span class="string">"http"</span>)</span><br><span class="line">.setHost(<span class="string">"www.google.com"</span>)</span><br><span class="line">.setPath(<span class="string">"/search"</span>)</span><br><span class="line">.setParameter(<span class="string">"q"</span>, <span class="string">"httpclient"</span>)</span><br><span class="line">.setParameter(<span class="string">"btnG"</span>, <span class="string">"Google Search"</span>)</span><br><span class="line">.setParameter(<span class="string">"aq"</span>, <span class="string">"f"</span>)</span><br><span class="line">.setParameter(<span class="string">"oq"</span>, <span class="string">""</span>)</span><br><span class="line">.build();</span><br><span class="line">HttpGet httpget = <span class="keyword">new</span> HttpGet(uri);</span><br><span class="line">System.out.println(httpget.getURI());</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">输出<b></b></b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.google.com/search?q=httpclient&amp;btnG=Google+Search&amp;aq=f&amp;oq=</span><br></pre></td></tr></table></figure>
+<h2 id="HTTP-response"><a href="#HTTP-response" class="headerlink" title="HTTP response"></a>HTTP response</h2><p><b style="font-size:16px">HTTP响应是服务器在接收并解释请求消息后发送回客户端的消息。 该消息的第一行包括协议版本，后跟数字状态代码及其相关的文本短语。</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HttpResponse response = <span class="keyword">new</span> BasicHttpResponse(HttpVersion.HTTP_1_1,</span><br><span class="line">HttpStatus.SC_OK, <span class="string">"OK"</span>);</span><br><span class="line">System.out.println(response.getProtocolVersion());</span><br><span class="line">System.out.println(response.getStatusLine().getStatusCode());</span><br><span class="line">System.out.println(response.getStatusLine().getReasonPhrase());</span><br><span class="line">System.out.println(response.getStatusLine().toString());</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">输出</b><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1</span><br><span class="line">200</span><br><span class="line">OK</span><br><span class="line">HTTP/1.1 200 OK</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用response首部"><a href="#使用response首部" class="headerlink" title="使用response首部"></a>使用response首部</h2><p><b style="font-size:16px">HTTP消息可以包含许多描述消息属性的标题，例如内容长度，内容类型等。 HttpClient提供了检索，添加，删除和枚举首部的方法。</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HttpResponse response = <span class="keyword">new</span> BasicHttpResponse(HttpVersion.HTTP_1_1,</span><br><span class="line">HttpStatus.SC_OK, <span class="string">"OK"</span>);</span><br><span class="line">response.addHeader(<span class="string">"Set-Cookie"</span>,</span><br><span class="line"><span class="string">"c1=a; path=/; domain=localhost"</span>);</span><br><span class="line">response.addHeader(<span class="string">"Set-Cookie"</span>,</span><br><span class="line"><span class="string">"c2=b; path=\"/\", c3=c; domain=\"localhost\""</span>);</span><br><span class="line">Header h1 = response.getFirstHeader(<span class="string">"Set-Cookie"</span>);</span><br><span class="line">System.out.println(h1);</span><br><span class="line">Header h2 = response.getLastHeader(<span class="string">"Set-Cookie"</span>);</span><br><span class="line">System.out.println(h2);</span><br><span class="line">Header[] hs = response.getHeaders(<span class="string">"Set-Cookie"</span>);</span><br><span class="line">System.out.println(hs.length);</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">输出</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: c1=a; path=/; domain=localhost</span><br><span class="line">Set-Cookie: c2=b; path=&quot;/&quot;, c3=c; domain=&quot;localhost&quot;</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">获取给定类型的所有首部的最有效方法是使用HeaderIterator接口。</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">HttpResponse response = <span class="keyword">new</span> BasicHttpResponse(HttpVersion.HTTP_1_1,</span><br><span class="line">HttpStatus.SC_OK, <span class="string">"OK"</span>);</span><br><span class="line">response.addHeader(<span class="string">"Set-Cookie"</span>,</span><br><span class="line"><span class="string">"c1=a; path=/; domain=localhost"</span>);</span><br><span class="line">response.addHeader(<span class="string">"Set-Cookie"</span>,</span><br><span class="line"><span class="string">"c2=b; path=\"/\", c3=c; domain=\"localhost\""</span>);</span><br><span class="line">HeaderIterator it = response.headerIterator(<span class="string">"Set-Cookie"</span>);</span><br><span class="line"><span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">System.out.println(it.next());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">输出</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: c1=a; path=/; domain=localhost</span><br><span class="line">Set-Cookie: c2=b; path=&quot;/&quot;, c3=c; domain=&quot;localhost&quot;</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">提供了将HTTP消息解析为单个头元素的便捷方法。</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">HttpResponse response = <span class="keyword">new</span> BasicHttpResponse(HttpVersion.HTTP_1_1,</span><br><span class="line">HttpStatus.SC_OK, <span class="string">"OK"</span>);</span><br><span class="line">response.addHeader(<span class="string">"Set-Cookie"</span>,</span><br><span class="line"><span class="string">"c1=a; path=/; domain=localhost"</span>);</span><br><span class="line">response.addHeader(<span class="string">"Set-Cookie"</span>,</span><br><span class="line"><span class="string">"c2=b; path=\"/\", c3=c; domain=\"localhost\""</span>);</span><br><span class="line">HeaderElementIterator it = <span class="keyword">new</span> BasicHeaderElementIterator(</span><br><span class="line">response.headerIterator(<span class="string">"Set-Cookie"</span>));</span><br><span class="line"><span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">HeaderElement elem = it.nextElement();</span><br><span class="line">System.out.println(elem.getName() + <span class="string">" = "</span> + elem.getValue());</span><br><span class="line">NameValuePair[] params = elem.getParameters();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; params.length; i++) &#123;</span><br><span class="line">System.out.println(<span class="string">" "</span> + params[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">输出</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">c1 = a</span><br><span class="line">path=/</span><br><span class="line">domain=localhost</span><br><span class="line">c2 = b</span><br><span class="line">path=/</span><br><span class="line">c3 = c</span><br><span class="line">domain=localhost</span><br></pre></td></tr></table></figure>
+<h2 id="HTTP-entity"><a href="#HTTP-entity" class="headerlink" title="HTTP entity"></a>HTTP entity</h2><p><b style="font-size:16px">HTTP消息可以携带与请求或响应相关联的内容实体。 实体可以在请求和响应中找到。 使用实体的请求称为包含请求的实体。 HTTP规范定义了两个请求方法的实体：POST和PUT。 通常reponse包含内容实体。 此规则有例外，例如对HEAD方法的响应和204 No Content，304 Not Modified，205 Reset Content响应。</b><br><br><br><b style="font-size:16px">HttpClient区分三种实体，具体取决于其内容的来源：</b><br><br><br><b style="font-size:16px"><li> 流式传输：内容从流中接收，或在运行中生成。 特别地，该类别包括从HTTP响应接收的实体。 流实体通常不可重复。</li></b><br><br><br><b style="font-size:16px"><li>自包含：内容在内存中或者通过独立的连接或者或其他实体的方式获得。自包含实体通常是可重复的。 这种类型的实体主要用于封装HTTP请求的实体。</li></b><br><br><br><b style="font-size:16px"><li> 包装：内容从另一个实体获得。</li></b><br><br></p>
+<p><b style="font-size:16px">当从HTTP响应流获得内容时，这种区别对于连接管理很重要。对于由应用程序创建且仅使用HttpClient发送的请求实体，流式和自包含之间的差异并不重要。在这种情况下，建议将不可重复的实体视为流式传输，将那些可重复的实体视为自包含的。在这种情况下，建议将不可重复的实体视为流式传输，将那些可重复的实体视为自包含的。</b></p>
+<h3 id="Repeatable-entities"><a href="#Repeatable-entities" class="headerlink" title="Repeatable entities"></a>Repeatable entities</h3><p><b style="font-size:16px">实体可以是可重复的，这意味着其内容可以被多次读取。 这是唯一可行的自包含实体（如ByteArrayEntity或StringEntity）</b></p>
+<h3 id="使用-HTTP-entities"><a href="#使用-HTTP-entities" class="headerlink" title="使用 HTTP entities"></a>使用 HTTP entities</h3><p><b style="font-size:16px">由于实体可以表示二进制和字符内容，因此它支持字符编码（支持后者，即字符内容）。</b><br><br><br><b style="font-size:16px">实体在执行带有附加内容的请求时或者请求成功并且使用响应主体将结果发送回客户端时创建。</b><br><br><br><b style="font-size:16px">要从实体读取内容，可以通过HttpEntity＃getContent（）方法检索输入流，该方法返回java.io.InputStream，或者可以向HttpEntity＃writeTo（OutputStream）方法提供输出流， 一旦所有内容都写入给定流，它将返回。</b><br><b><br><b style="font-size:16px">当接收到具有传入消息的实体时，方法HttpEntity＃getContentType（）和HttpEntity＃getContentLength（）方法可用于读取公共元数据，例如Content-Type和Content-Length头（如果它们可用）。 由于Content-Type首部可以包含文本mime类型（如text / plain或text / html）的字符编码，因此HttpEntity＃getContentEncoding（）方法用于读取此信息。 如果首部不可用，则返回长度-1，内容类型为NULL。 如果Content-Type首部可用，则将返回Header对象。</b></b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">StringEntity myEntity = <span class="keyword">new</span> StringEntity(<span class="string">"important message"</span>,</span><br><span class="line">ContentType.create(<span class="string">"text/plain"</span>, <span class="string">"UTF-8"</span>));</span><br><span class="line">System.out.println(myEntity.getContentType());</span><br><span class="line">System.out.println(myEntity.getContentLength());</span><br><span class="line">System.out.println(EntityUtils.toString(myEntity));</span><br><span class="line">System.out.println(EntityUtils.toByteArray(myEntity).length);</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">输出</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: text/plain; charset=utf-8</span><br><span class="line">17</span><br><span class="line">important message</span><br><span class="line">17</span><br></pre></td></tr></table></figure>
+<h2 id="释放资源"><a href="#释放资源" class="headerlink" title="释放资源"></a>释放资源</h2><p><b style="font-size:16px">为了确保正确释放系统资源，必须关闭与实体关联的内容流或响应本身</b><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CloseableHttpClient httpclient = HttpClients.createDefault();</span><br><span class="line">HttpGet httpget = <span class="keyword">new</span> HttpGet(<span class="string">"http://localhost/"</span>);</span><br><span class="line">CloseableHttpResponse response = httpclient.execute(httpget);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">HttpEntity entity = response.getEntity();</span><br><span class="line"><span class="keyword">if</span> (entity != <span class="keyword">null</span>) &#123;</span><br><span class="line">InputStream instream = entity.getContent();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"><span class="comment">// do something useful</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">instream.close();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">response.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/httpclient/" rel="tag"># httpclient</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/25/键索引计数法/" rel="next" title="键索引计数法">
+                <i class="fa fa-chevron-left"></i> 键索引计数法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/06/简单的线程池实现/" rel="prev" title="简单的线程池实现">
+                简单的线程池实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/a.jpg" alt="Mr H">
+            
+              <p class="site-author-name" itemprop="name">Mr H</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本知识"><span class="nav-number">1.</span> <span class="nav-text">基本知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Request-execution"><span class="nav-number">1.1.</span> <span class="nav-text">Request execution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-request"><span class="nav-number">1.2.</span> <span class="nav-text">HTTP request</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-response"><span class="nav-number">1.3.</span> <span class="nav-text">HTTP response</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用response首部"><span class="nav-number">1.4.</span> <span class="nav-text">使用response首部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-entity"><span class="nav-number">1.5.</span> <span class="nav-text">HTTP entity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Repeatable-entities"><span class="nav-number">1.5.1.</span> <span class="nav-text">Repeatable entities</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-HTTP-entities"><span class="nav-number">1.5.2.</span> <span class="nav-text">使用 HTTP entities</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#释放资源"><span class="nav-number">1.6.</span> <span class="nav-text">释放资源</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr H</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

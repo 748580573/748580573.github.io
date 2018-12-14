@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/">
+
+
+
+
+
+  <title>Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+	<a href="https://github.com/748580573/"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-search"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/14/new-blog/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr H">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/14/new-blog/" itemprop="url">new blog</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-14T10:32:44+08:00">
+                2018-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/14/hello-world/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr H">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/14/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-14T10:24:56+08:00">
+                2018-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/数据库三范式/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr H">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/24/数据库三范式/" itemprop="url">数据库三范式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T08:51:55+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="什么是三范式"><a href="#什么是三范式" class="headerlink" title="什么是三范式"></a>什么是三范式</h1><p><b style="font-size:16px">设计关系型数据库时，遵从不同的规范要求，设计出合理的关系型数据库，这些不同的规范要求被称为不同的范式，各种范式呈递次规范，越高的范式数据库冗余越小。目前关系型数据库有六种范式：第一范式（1NF）、第二范式（2NF）、第三范式（3NF）、巴斯-科德范式（BCNF）、第四范式（4NF）和第五范式（5NF，又称完美范式）。一般来说，数据库只需要满足第三范式就行了。</b></p>
+<h1 id="第一范式：保证每列的原子性"><a href="#第一范式：保证每列的原子性" class="headerlink" title="第一范式：保证每列的原子性"></a>第一范式：保证每列的原子性</h1><p><b style="font-size:16px">第一范式是最基本的范式。如果数据库表中的所有字段值都是不可分解的原子值，就说明该数据库满足了第一范式。</b><br><b style="font-size:16px">第一范式需要根据系统的实际需求来定，比如有一张用户信息表：</b><br><img src="/image/database/1-1.png" alt="图1-1"><br><b style="font-size:16px">一般来说”住址”设计成一个字段就行，但是如果经常访问”住址”中城市的部分，那么就非要将”住址”这个属性重新拆分为”省份”、”城市”、”地址”等多个部分进行存储，这样在对”住址”中某一部分进行操作的时候将非常方便。这么设计才算满足了数据库的第一范式，修改之后的表结构如图：</b><br><img src="/image/database/1-2.png" alt="图1-2"></p>
+<h1 id="第二范式：保证一张表只描述一件事情"><a href="#第二范式：保证一张表只描述一件事情" class="headerlink" title="第二范式：保证一张表只描述一件事情"></a>第二范式：保证一张表只描述一件事情</h1><p><b style="font-size:16px">这是通俗的说法，用第二范式的定义描述第二范式，说的是在满足第一范式的基础上，数据库表中不存在非关键字段对任一候选关键字段的部分函数依赖，也即所有非关键字段都完全依赖于任一组候选关键字。</b><br><b style="font-size:16px">看不懂是吗，没关系，我也看不懂，下面举一个例子，有一张表如下图：</b><br><img src="/image/database/1-3.png" alt="图1-3"><br><b style="font-size:16px">上表满足第一范式，即每个字段不可再分，但是这张表设计得并不好，或者说，这张表的设计并不满足第二范式。因为这张表里面描述了两件事情：学生信息、课程信息，”学分”完全依赖于”课程名称”、”姓名”与”年龄”完全依赖于”学号”。这么做的后果是：</b></p>
+<p><li style="font-size:16px">数据冗余：同一门课程由n个学生选修，”学分”重复n-1次；同一个学生选修了m门课程，姓名和年龄重复m-1次</li></p>
+<p><li style="font-size:16px">更新异常：若调整了某门课程的学分，数据表中所有行的”学分”值都需要更新，否则会出现同一门课程学分不同的情况</li></p>
+<p><li style="font-size:16px">插入异常：假设要开一门新课程，暂时没有人选修，那么由于没有”学号”关键字，”课程”与”学分”也无法记录入数据库</li></p>
+<p><li style="font-size:16px">删除异常：假设一批学生已经完成课程的选修，这些选修记录就应该从数据库表中删除。但是，与此同时，”课程”和”学分”也被删除了，显然，这最终可能会导致插入异常</li><br><b style="font-size:16px">所以，此表的结构必须修改，修改后如下：</b></p>
+<p><img src="/image/database/1-4.png" alt=""><br><br><img src="/image/database/1-5.png" alt="">!<br><br><img src="/image/database/1-6.png" alt="图1-4"><br><b style="font-size:16px">增加了表，将学生信息与课程信息通过一张中间表关联，很好地解决了上面的几个问题，这就是第二范式的中心—-保证一张表只讲一件事情。</b></p>
+<h1 id="第三范式—-保证每列都和主键直接相关"><a href="#第三范式—-保证每列都和主键直接相关" class="headerlink" title="第三范式—-保证每列都和主键直接相关"></a>第三范式—-保证每列都和主键直接相关</h1><p><b style="font-size:16px">第三范式又和第二范式相关，用第三范式的定义描述第三范式就是，数据库表中如果不存在非关键字段任一候选关键字段的传递函数依赖则符合第三范式，所谓传递函数依赖指的是如果存在”A–&gt;B–&gt;C”的决定关系，则C传递函数依赖于A。也就是说表中的字段和主键直接对应不依靠其他中间字段，说白了就是，决定某字段值的必须是主键</b><br><b style="font-size:16px">举个例子，看一下如下的表结构：</b><br><img src="/image/database/1-7.png" alt="图1-5"></p>
+<p><b style="font-size:16px">第三范式和第二范式有点像，从这张数据库表结构中可以看出，”姓名”、”年龄”、”学院”和主键”学号”直接关联，但是”学院地点”、”学院电话”却不直接和主键”学号”相关联，和”学院电话”直接相关联的是”学院”，如果表结构这么设计，同样会造成和第二范式一样的数据冗余、更新异常、插入异常、删除异常的问题。</b><br><b style="font-size:16px">修改之后的表结构如下图：</b><br><img src="/image/database/1-9.png" alt="图1-7"><br><img src="/image/database/1-8.png" alt="图1-6"><br><b style="font-size:16px">同样，这么设计表结构将合理地多，也解决了前面的四个问题</b></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/12/FreemarkerUtil/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr H">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/12/FreemarkerUtil/" itemprop="url">FreemarkerUtil</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-12T21:19:56+08:00">
+                2018-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FreeMarkerUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger= LoggerFactory.getLogger(FreeMarkerUtil.class);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Template <span class="title">getTeplateByStr</span><span class="params">(String templateName, String templateStr, Configuration config)</span> <span class="keyword">throws</span> AdminException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">null</span> == config) &#123;</span><br><span class="line">            config=<span class="keyword">new</span> Configuration();</span><br><span class="line">        &#125;</span><br><span class="line">        config.setOutputEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">        config.setURLEscapingCharset(<span class="string">"UTF-8"</span>);</span><br><span class="line">        config.setDefaultEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line"></span><br><span class="line">        Template template=<span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            BeansWrapper wrapper=BeansWrapper.getDefaultInstance();</span><br><span class="line">            TemplateHashModel staticModels=wrapper.getStaticModels();</span><br><span class="line">            TemplateHashModel fileStatics=(TemplateHashModel)staticModels.get(FreeMarkerFuncs.class.getName());</span><br><span class="line">            config.setSharedVariable(<span class="string">"funcs"</span>, fileStatics);</span><br><span class="line">            template=<span class="keyword">new</span> Template(templateName, <span class="keyword">new</span> StringReader(templateStr), config);</span><br><span class="line">        &#125; <span class="keyword">catch</span>(Exception e) &#123;</span><br><span class="line">            logger.error(e.getMessage(), e);</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> AdminException(<span class="string">"创建模版失败"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> template;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">process</span><span class="params">(Template template, Map&lt;String, Object&gt; root)</span> <span class="keyword">throws</span> AdminException </span>&#123;</span><br><span class="line">        StringWriter writer=<span class="keyword">new</span> StringWriter();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            template.process(root, writer);</span><br><span class="line">            <span class="keyword">return</span> writer.toString();</span><br><span class="line">        &#125; <span class="keyword">catch</span>(Exception e) &#123;</span><br><span class="line">            logger.error(e.getMessage(), e);</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> AdminException(<span class="string">"渲染模版失败"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getHtml</span><span class="params">(String templateStr, Map&lt;String, Object&gt; root)</span> <span class="keyword">throws</span> AdminException </span>&#123;</span><br><span class="line">        Configuration config=<span class="keyword">new</span> Configuration();</span><br><span class="line">        Template template=getTeplateByStr(<span class="string">"defaultTmpl"</span>, templateStr, config);</span><br><span class="line">        <span class="keyword">return</span> process(template, root);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/06/简单的线程池实现/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr H">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/06/简单的线程池实现/" itemprop="url">简单的线程池实现</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-06T10:23:38+08:00">
+                2018-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/thread/" itemprop="url" rel="index">
+                    <span itemprop="name">thread</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h2><p><b style="font-size:16px">话不多说,先上原理图</b><br><img src="/image/thread/1-1.png" alt="图1-1原理图"></p>
+<p><b style="font-size:16px"> 上代码之前，要先补充一下线程池构造的核心几个点 </b></p>
+<p><b style="font-size:16px"><li> 线程池里的核心线程数与最大线程数</li></b><br><b style="font-size:16px"><li>线程池里真正工作的线程worker</li></b><br><b style="font-size:16px"><li>线程池里用来存取任务的队列BlockingQueue</li></b><br><b style="font-size:16px"><li>线程中的任务task</li></b>   </p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.heng.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.BlockingQueue;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.LinkedBlockingDeque;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadExcutor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">boolean</span> RUNNING = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> BlockingQueue&lt;Runnable&gt; queue = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> HashSet&lt;Worker&gt; workers = <span class="keyword">new</span> HashSet&lt;Worker&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;Thread&gt; threadList = <span class="keyword">new</span> ArrayList&lt;Thread&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 工作线程数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">int</span> poolSize = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 核心线程数(创建了多少个工作线程)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">int</span> coreSize = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">volatile</span> <span class="keyword">boolean</span> shutdown = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadExcutor</span><span class="params">(<span class="keyword">int</span> poolSize)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.poolSize = poolSize;</span><br><span class="line">        queue = <span class="keyword">new</span> LinkedBlockingDeque&lt;Runnable&gt;(poolSize);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exec</span><span class="params">(Runnable runnable)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (runnable == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (coreSize &lt; poolSize)&#123;</span><br><span class="line">            addThread(runnable);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                queue.put(runnable);</span><br><span class="line">            &#125;<span class="keyword">catch</span> (InterruptedException e)&#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加线程</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> runnable</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addThread</span><span class="params">(Runnable runnable)</span></span>&#123;</span><br><span class="line">       coreSize ++;</span><br><span class="line">       Worker worker = <span class="keyword">new</span> Worker(runnable);</span><br><span class="line">       workers.add(worker);</span><br><span class="line">       Thread t = <span class="keyword">new</span> Thread(worker);</span><br><span class="line">       threadList.add(t);</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           t.start();</span><br><span class="line">       &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shutdown</span><span class="params">()</span></span>&#123;</span><br><span class="line">        RUNNING = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (!workers.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">for</span> (Worker worker : workers)&#123;</span><br><span class="line">                worker.interruptIfIdle();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        shutdown = <span class="keyword">true</span>;</span><br><span class="line">        Thread.currentThread().interrupt();;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Worker</span><span class="params">(Runnable runnable)</span></span>&#123;</span><br><span class="line">            queue.offer(runnable);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span> &amp;&amp; RUNNING)&#123;</span><br><span class="line">                <span class="keyword">if</span> (shutdown)&#123;</span><br><span class="line">                    Thread.interrupted();</span><br><span class="line">                &#125;</span><br><span class="line">                Runnable task = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    task = getTask();</span><br><span class="line">                    task.run();</span><br><span class="line">                &#125;<span class="keyword">catch</span> (InterruptedException e)&#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Runnable <span class="title">getTask</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> queue.take();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">interruptIfIdle</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">for</span> (Thread thread : threadList)&#123;</span><br><span class="line">                System.out.println(thread.getName() + <span class="string">"interrupt"</span>);</span><br><span class="line">                thread.interrupt();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="worker工作原理"><a href="#worker工作原理" class="headerlink" title="worker工作原理"></a>worker工作原理</h2><p><img src="/image/thread/1-2.png" alt="worker工作原理"><br><b style="font-size:16px">我们先看看代码</b><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">boolean</span> RUNNING = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> BlockingQueue&lt;Runnable&gt; queue = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> HashSet&lt;Worker&gt; workers = <span class="keyword">new</span> HashSet&lt;Worker&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> List&lt;Thread&gt; threadList = <span class="keyword">new</span> ArrayList&lt;Thread&gt;();</span><br></pre></td></tr></table></figure></p>
+<p><b style="font-size:16px">这个工作线程实例化的时候就先加入一个任务到队列中，也就是说在实例化这个工作线程时，这个工作线程也是一个任务被加入到线程池中。然后就是run方法，这个run方法是线程调start方法生成的线程，而Worker调的run方法并没有生成新的线程。就是一个循环，一直在不停的从队列中取任务，然后执行。可以看到，取队列的方法是take()，这个方法意思如果队列为空了，取不到数据时就阻塞队列。</b><br><br><br><b style="font-size:16px">queue记录着需要完成的任务，而threadList则记录着已经在使用的线程的数量，一旦线程的使用数量达到上限，将不会创建新的线程，而是利用原来的线程再次执行任务。</b></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/27/httpclient参考文档/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr H">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/27/httpclient参考文档/" itemprop="url">httpclient参考文档</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-27T14:13:33+08:00">
+                2018-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/httpclient/" itemprop="url" rel="index">
+                    <span itemprop="name">httpclient</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><b style="font-size:18px">（注：该文档基于httpclient4.0+版本）</b></p>
+<h1 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h1><h2 id="Request-execution"><a href="#Request-execution" class="headerlink" title="Request execution"></a>Request execution</h2><p><b style="font-size:16px">HttpClient最重要的功能是执行HTTP方法。执行HTTP方法涉及一个或多个HTTP请求/ HTTP响应交换，通常由HttpClient内部处理。用户需要提供一个request对象，Httpclient发送该对象到目标服务器，并返回一个相应的reponse对象，如果不成功则跑出异常</b><br><br><br><b style="font-size:16px">HttpClient API的主要入口点是HttpClient接口,它实现了上述的规定</b><br><br><br><b style="font-size:16px">下面是最简的请求执行过程示例：</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CloseableHttpClient httpclient = HttpClients.createDefault();</span><br><span class="line">HttpGet httpget = <span class="keyword">new</span> HttpGet(<span class="string">"http://localhost/"</span>);</span><br><span class="line">CloseableHttpResponse response = httpclient.execute(httpget);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">&lt;...&gt;</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">response.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="HTTP-request"><a href="#HTTP-request" class="headerlink" title="HTTP request"></a>HTTP request</h2><p><b style="font-size:16px">所有HTTP请求都有一个请求行，包括方法名称，请求URI和HTTP协议版本。</b><br><br><br><b style="font-size:16px">HttpClient supports out of the box all HTTP methods defined in the HTTP/1.1 specification:  GET ,HEAD ,  POST ,  PUT ,  DELETE ,  TRACE and  OPTIONS . There is a specific class for each method type.:  HttpGet ,HttpHead ,  HttpPost ,  HttpPut ,  HttpDelete ,  HttpTrace , and  HttpOptions .</b><br><br><br><b style="font-size:16px">Request-URI是统一资源标识符，用于标识应用请求的资源。HTTP请求URI由协议方案，主机名，可选端口，资源路径，可选查询和可选片段组成。</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HttpGet httpget = <span class="keyword">new</span> HttpGet(<span class="string">"http://www.google.com/search?hl=en&amp;q=httpclient&amp;btnG=Google+Search&amp;aq=f&amp;oq="</span>);</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">HttpClient提供了URIBuilder实体类，以简化请求URI的创建和修改。</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">URI uri = <span class="keyword">new</span> URIBuilder()</span><br><span class="line">.setScheme(<span class="string">"http"</span>)</span><br><span class="line">.setHost(<span class="string">"www.google.com"</span>)</span><br><span class="line">.setPath(<span class="string">"/search"</span>)</span><br><span class="line">.setParameter(<span class="string">"q"</span>, <span class="string">"httpclient"</span>)</span><br><span class="line">.setParameter(<span class="string">"btnG"</span>, <span class="string">"Google Search"</span>)</span><br><span class="line">.setParameter(<span class="string">"aq"</span>, <span class="string">"f"</span>)</span><br><span class="line">.setParameter(<span class="string">"oq"</span>, <span class="string">""</span>)</span><br><span class="line">.build();</span><br><span class="line">HttpGet httpget = <span class="keyword">new</span> HttpGet(uri);</span><br><span class="line">System.out.println(httpget.getURI());</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">输出<b></b></b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.google.com/search?q=httpclient&amp;btnG=Google+Search&amp;aq=f&amp;oq=</span><br></pre></td></tr></table></figure>
+<h2 id="HTTP-response"><a href="#HTTP-response" class="headerlink" title="HTTP response"></a>HTTP response</h2><p><b style="font-size:16px">HTTP响应是服务器在接收并解释请求消息后发送回客户端的消息。 该消息的第一行包括协议版本，后跟数字状态代码及其相关的文本短语。</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HttpResponse response = <span class="keyword">new</span> BasicHttpResponse(HttpVersion.HTTP_1_1,</span><br><span class="line">HttpStatus.SC_OK, <span class="string">"OK"</span>);</span><br><span class="line">System.out.println(response.getProtocolVersion());</span><br><span class="line">System.out.println(response.getStatusLine().getStatusCode());</span><br><span class="line">System.out.println(response.getStatusLine().getReasonPhrase());</span><br><span class="line">System.out.println(response.getStatusLine().toString());</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">输出</b><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1</span><br><span class="line">200</span><br><span class="line">OK</span><br><span class="line">HTTP/1.1 200 OK</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用response首部"><a href="#使用response首部" class="headerlink" title="使用response首部"></a>使用response首部</h2><p><b style="font-size:16px">HTTP消息可以包含许多描述消息属性的标题，例如内容长度，内容类型等。 HttpClient提供了检索，添加，删除和枚举首部的方法。</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HttpResponse response = <span class="keyword">new</span> BasicHttpResponse(HttpVersion.HTTP_1_1,</span><br><span class="line">HttpStatus.SC_OK, <span class="string">"OK"</span>);</span><br><span class="line">response.addHeader(<span class="string">"Set-Cookie"</span>,</span><br><span class="line"><span class="string">"c1=a; path=/; domain=localhost"</span>);</span><br><span class="line">response.addHeader(<span class="string">"Set-Cookie"</span>,</span><br><span class="line"><span class="string">"c2=b; path=\"/\", c3=c; domain=\"localhost\""</span>);</span><br><span class="line">Header h1 = response.getFirstHeader(<span class="string">"Set-Cookie"</span>);</span><br><span class="line">System.out.println(h1);</span><br><span class="line">Header h2 = response.getLastHeader(<span class="string">"Set-Cookie"</span>);</span><br><span class="line">System.out.println(h2);</span><br><span class="line">Header[] hs = response.getHeaders(<span class="string">"Set-Cookie"</span>);</span><br><span class="line">System.out.println(hs.length);</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">输出</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: c1=a; path=/; domain=localhost</span><br><span class="line">Set-Cookie: c2=b; path=&quot;/&quot;, c3=c; domain=&quot;localhost&quot;</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">获取给定类型的所有首部的最有效方法是使用HeaderIterator接口。</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">HttpResponse response = <span class="keyword">new</span> BasicHttpResponse(HttpVersion.HTTP_1_1,</span><br><span class="line">HttpStatus.SC_OK, <span class="string">"OK"</span>);</span><br><span class="line">response.addHeader(<span class="string">"Set-Cookie"</span>,</span><br><span class="line"><span class="string">"c1=a; path=/; domain=localhost"</span>);</span><br><span class="line">response.addHeader(<span class="string">"Set-Cookie"</span>,</span><br><span class="line"><span class="string">"c2=b; path=\"/\", c3=c; domain=\"localhost\""</span>);</span><br><span class="line">HeaderIterator it = response.headerIterator(<span class="string">"Set-Cookie"</span>);</span><br><span class="line"><span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">System.out.println(it.next());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">输出</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: c1=a; path=/; domain=localhost</span><br><span class="line">Set-Cookie: c2=b; path=&quot;/&quot;, c3=c; domain=&quot;localhost&quot;</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">提供了将HTTP消息解析为单个头元素的便捷方法。</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">HttpResponse response = <span class="keyword">new</span> BasicHttpResponse(HttpVersion.HTTP_1_1,</span><br><span class="line">HttpStatus.SC_OK, <span class="string">"OK"</span>);</span><br><span class="line">response.addHeader(<span class="string">"Set-Cookie"</span>,</span><br><span class="line"><span class="string">"c1=a; path=/; domain=localhost"</span>);</span><br><span class="line">response.addHeader(<span class="string">"Set-Cookie"</span>,</span><br><span class="line"><span class="string">"c2=b; path=\"/\", c3=c; domain=\"localhost\""</span>);</span><br><span class="line">HeaderElementIterator it = <span class="keyword">new</span> BasicHeaderElementIterator(</span><br><span class="line">response.headerIterator(<span class="string">"Set-Cookie"</span>));</span><br><span class="line"><span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">HeaderElement elem = it.nextElement();</span><br><span class="line">System.out.println(elem.getName() + <span class="string">" = "</span> + elem.getValue());</span><br><span class="line">NameValuePair[] params = elem.getParameters();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; params.length; i++) &#123;</span><br><span class="line">System.out.println(<span class="string">" "</span> + params[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">输出</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">c1 = a</span><br><span class="line">path=/</span><br><span class="line">domain=localhost</span><br><span class="line">c2 = b</span><br><span class="line">path=/</span><br><span class="line">c3 = c</span><br><span class="line">domain=localhost</span><br></pre></td></tr></table></figure>
+<h2 id="HTTP-entity"><a href="#HTTP-entity" class="headerlink" title="HTTP entity"></a>HTTP entity</h2><p><b style="font-size:16px">HTTP消息可以携带与请求或响应相关联的内容实体。 实体可以在请求和响应中找到。 使用实体的请求称为包含请求的实体。 HTTP规范定义了两个请求方法的实体：POST和PUT。 通常reponse包含内容实体。 此规则有例外，例如对HEAD方法的响应和204 No Content，304 Not Modified，205 Reset Content响应。</b><br><br><br><b style="font-size:16px">HttpClient区分三种实体，具体取决于其内容的来源：</b><br><br><br><b style="font-size:16px"><li> 流式传输：内容从流中接收，或在运行中生成。 特别地，该类别包括从HTTP响应接收的实体。 流实体通常不可重复。</li></b><br><br><br><b style="font-size:16px"><li>自包含：内容在内存中或者通过独立的连接或者或其他实体的方式获得。自包含实体通常是可重复的。 这种类型的实体主要用于封装HTTP请求的实体。</li></b><br><br><br><b style="font-size:16px"><li> 包装：内容从另一个实体获得。</li></b><br><br></p>
+<p><b style="font-size:16px">当从HTTP响应流获得内容时，这种区别对于连接管理很重要。对于由应用程序创建且仅使用HttpClient发送的请求实体，流式和自包含之间的差异并不重要。在这种情况下，建议将不可重复的实体视为流式传输，将那些可重复的实体视为自包含的。在这种情况下，建议将不可重复的实体视为流式传输，将那些可重复的实体视为自包含的。</b></p>
+<h3 id="Repeatable-entities"><a href="#Repeatable-entities" class="headerlink" title="Repeatable entities"></a>Repeatable entities</h3><p><b style="font-size:16px">实体可以是可重复的，这意味着其内容可以被多次读取。 这是唯一可行的自包含实体（如ByteArrayEntity或StringEntity）</b></p>
+<h3 id="使用-HTTP-entities"><a href="#使用-HTTP-entities" class="headerlink" title="使用 HTTP entities"></a>使用 HTTP entities</h3><p><b style="font-size:16px">由于实体可以表示二进制和字符内容，因此它支持字符编码（支持后者，即字符内容）。</b><br><br><br><b style="font-size:16px">实体在执行带有附加内容的请求时或者请求成功并且使用响应主体将结果发送回客户端时创建。</b><br><br><br><b style="font-size:16px">要从实体读取内容，可以通过HttpEntity＃getContent（）方法检索输入流，该方法返回java.io.InputStream，或者可以向HttpEntity＃writeTo（OutputStream）方法提供输出流， 一旦所有内容都写入给定流，它将返回。</b><br><b><br><b style="font-size:16px">当接收到具有传入消息的实体时，方法HttpEntity＃getContentType（）和HttpEntity＃getContentLength（）方法可用于读取公共元数据，例如Content-Type和Content-Length头（如果它们可用）。 由于Content-Type首部可以包含文本mime类型（如text / plain或text / html）的字符编码，因此HttpEntity＃getContentEncoding（）方法用于读取此信息。 如果首部不可用，则返回长度-1，内容类型为NULL。 如果Content-Type首部可用，则将返回Header对象。</b></b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">StringEntity myEntity = <span class="keyword">new</span> StringEntity(<span class="string">"important message"</span>,</span><br><span class="line">ContentType.create(<span class="string">"text/plain"</span>, <span class="string">"UTF-8"</span>));</span><br><span class="line">System.out.println(myEntity.getContentType());</span><br><span class="line">System.out.println(myEntity.getContentLength());</span><br><span class="line">System.out.println(EntityUtils.toString(myEntity));</span><br><span class="line">System.out.println(EntityUtils.toByteArray(myEntity).length);</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">输出</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: text/plain; charset=utf-8</span><br><span class="line">17</span><br><span class="line">important message</span><br><span class="line">17</span><br></pre></td></tr></table></figure>
+<h2 id="释放资源"><a href="#释放资源" class="headerlink" title="释放资源"></a>释放资源</h2><p><b style="font-size:16px">为了确保正确释放系统资源，必须关闭与实体关联的内容流或响应本身</b><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CloseableHttpClient httpclient = HttpClients.createDefault();</span><br><span class="line">HttpGet httpget = <span class="keyword">new</span> HttpGet(<span class="string">"http://localhost/"</span>);</span><br><span class="line">CloseableHttpResponse response = httpclient.execute(httpget);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">HttpEntity entity = response.getEntity();</span><br><span class="line"><span class="keyword">if</span> (entity != <span class="keyword">null</span>) &#123;</span><br><span class="line">InputStream instream = entity.getContent();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"><span class="comment">// do something useful</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">instream.close();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">response.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/25/键索引计数法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr H">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/25/键索引计数法/" itemprop="url">键索引计数法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-25T15:18:57+08:00">
+                2018-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/sort/" itemprop="url" rel="index">
+                    <span itemprop="name">sort</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="引论"><a href="#引论" class="headerlink" title="引论"></a>引论</h2><p><b style="font-size:16px">额，想一想，当我们拿着一份excel文档，文档上记录的本次出游的人员名单和分组号，但数据是乱的，就是说只给了你数据，但没有排序和分组，这个时候我们就需要用到键索引计数法，来进行分组和排序了</b></p>
+<h2 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h2><p><b style="font-size:16px">1、首先将“组号”定义为键，将“姓名”定义为值，然后用一个数组统计所有键的出现频率</b><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count[] ;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* N为excel表元素的个数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123; </span><br><span class="line">            count[a[i].key() + <span class="number">1</span>]++; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p><b style="font-size:16px">2、使用count[]来计算每个键在排序结果中的起始位置</b><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* r为键的个数，同样也为分组总数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">int</span> r = <span class="number">0</span>; r &lt; R; r++) &#123; </span><br><span class="line">            count[r + <span class="number">1</span>] += count[r]; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p><b style="font-size:16px">将count[]数组转换成一张索引表后，将所有元素移动到一个辅助数组aux[]中以进行排序；</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* N为分组总数</span></span><br><span class="line"><span class="comment">* temp为临时数组</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123; </span><br><span class="line">            temp[count[a[i].key()]++] = a[i]; </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p><b style="font-size:16px">最后将temp数组写会count数组中</b></p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(People[] a, <span class="keyword">int</span> R)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">int</span> N = a.length; </span><br><span class="line">        People[] temp = <span class="keyword">new</span> People[N]; </span><br><span class="line">        <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[R + <span class="number">1</span>]; </span><br><span class="line"></span><br><span class="line">        <span class="comment">// 第一步，计算出现的频率 </span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123; </span><br><span class="line">           count[a[i].key() + <span class="number">1</span>]++; </span><br><span class="line">       &#125; </span><br><span class="line"></span><br><span class="line">       <span class="comment">//第二步，将频率转换成索引 </span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> r = <span class="number">0</span>; r &lt; R; r++) &#123; </span><br><span class="line">           count[r + <span class="number">1</span>] += count[r]; </span><br><span class="line">       &#125; </span><br><span class="line"></span><br><span class="line">              <span class="comment">//分类，形成左闭右开的区间</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123; </span><br><span class="line">           temp[count[a[i].key()]++] = a[i];         <span class="comment">//这个地方很有味道，看官请细细揣摩</span></span><br><span class="line">       &#125; </span><br><span class="line"></span><br><span class="line">        <span class="comment">// 第四步，回写 </span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123; </span><br><span class="line">           a[i] = aux[i]; </span><br><span class="line">       &#125; </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/25/正则表达式高级/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr H">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/25/正则表达式高级/" itemprop="url">正则表达式高级</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-25T14:35:52+08:00">
+                2018-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/regex/" itemprop="url" rel="index">
+                    <span itemprop="name">regex</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h1><h2 id="预搜索与反向搜索"><a href="#预搜索与反向搜索" class="headerlink" title="预搜索与反向搜索"></a>预搜索与反向搜索</h2><p><img src="/image/regex/1-1.jpg" alt="图1-1"> </p>
+<p><b style="font-size:18px">1.a(?=b)正向搜索，找出出现a并且出现a位置后面是b的符合a字符 例如 fg<span style="color:#ff6666;">a</span>bdff会找标红的a</b><br><br><b style="font-size:18px">2.a(?&lt;=b)反向搜索，找出出现a并且出现a位置前面是符合a的字符 例如 affgfgabdff是找不到任何元素的，因为会从a位置往前找，a自己本省就是往前的第一个元素，所以找不到。a(?&lt;=a)这样写会找出所有的a，例如affgfgabdff会找出标红的a。</b><br><br><b style="font-size:18px">3.a(?!b)正向搜索，找出出现a并且a后面不是b的符合a字符 例如affgfgabdff会找出标红的a。</b><br><br><b style="font-size:18px">4.a(?&lt;!b)反向搜索，找出出现a并且出现a位置前面不是b的符合a字符 例如 <span style="color:#ff6666;">a</span>ffgfg<span style="color:#ff6666;">a</span>bdff会找出标红的a，a（?&lt;!a&gt;例如affgfgabdff不会找到任何符合的字符，因为从出现a的位置找，并且包括a，所以往前找第一个是a，不符合不等于a的条件。</b><br></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><b style="font-size:18px">就是先找到a，然后根据a的位置（包括a的位置）进行向前或者向后的预搜索,感觉类似于if语句中的&amp;&amp;</b></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/数据库随机查找/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr H">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/23/数据库随机查找/" itemprop="url">数据库随机查找</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T17:37:05+08:00">
+                2018-07-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/database/" itemprop="url" rel="index">
+                    <span itemprop="name">database</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="数据库随机查找"><a href="#数据库随机查找" class="headerlink" title="数据库随机查找"></a>数据库随机查找</h1><h2 id="语句一"><a href="#语句一" class="headerlink" title="语句一"></a>语句一</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">users</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">rand</span>() <span class="keyword">LIMIT</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><b>MYSQL手册里面针对RAND()的提示大概意思就是，在 ORDER BY从句里面不能使用RAND()函数，因为这样会导致数据列被多次扫描，导致效率相当相当的低，效率不行，切忌使用。</b></p>
+<h2 id="语句二"><a href="#语句二" class="headerlink" title="语句二"></a>语句二</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span>  <span class="keyword">AS</span> t1  <span class="keyword">JOIN</span> (<span class="keyword">SELECT</span> <span class="keyword">ROUND</span>(<span class="keyword">RAND</span>() * ((<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(userId) <span class="keyword">FROM</span> <span class="string">`users`</span>)-(<span class="keyword">SELECT</span> <span class="keyword">MIN</span>(userId) <span class="keyword">FROM</span> <span class="keyword">users</span>))+(<span class="keyword">SELECT</span> <span class="keyword">MIN</span>(userId) <span class="keyword">FROM</span> <span class="keyword">users</span>)) <span class="keyword">AS</span> userId) <span class="keyword">AS</span> t2 <span class="keyword">WHERE</span> t1.userId &gt;= t2.userId <span class="keyword">ORDER</span> <span class="keyword">BY</span> t1.userId <span class="keyword">LIMIT</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><b>执 行该sql语句，用时0.031s，效率非常好。当把”LIMIT 1“改为了”LIMIT 100“ 随机取一百条记录，用时0.048s。可是就在此时问题出现了，发现结果好像不是随机的。为了验证结果，又执行了N次，的确不是随机的。问题出现 在”ORDER BY t1.userId“这里，按userId排序了。随机取一条记录还是不错的选择，多条就不行了啊。</b></p>
+<h2 id="语句三："><a href="#语句三：" class="headerlink" title="语句三："></a>语句三：</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> userId &gt;= ((<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(userId) <span class="keyword">FROM</span> <span class="keyword">users</span>)-(<span class="keyword">SELECT</span> <span class="keyword">MIN</span>(userId) <span class="keyword">FROM</span> <span class="keyword">users</span>)) * <span class="keyword">RAND</span>() + (<span class="keyword">SELECT</span> <span class="keyword">MIN</span>(userId) <span class="keyword">FROM</span> <span class="keyword">users</span>)  <span class="keyword">LIMIT</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><b>执行该sql语句，用时0.039s，效率也是非常好。接着把”LIMIT 1“改为了”LIMIT 10000“，用时0.063s。经过多次验证，得出的结果都是随机的。</b></p>
+<p><b>结论：语句一效率不行，切忌使用。随机获得一条记录，语句二是相当不错的选择，采用JOIN的语法比直接在WHERE中使用函数效率还是要高一些的。语句三也不错，随机获得多条记录的首选。</b></p>
+<p><b>注：转自<a href="http://www.im286.com/thread-7091552-1-1.html" target="_blank" rel="noopener">http://www.im286.com/thread-7091552-1-1.html</a></b></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/18/常用正则表达式/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr H">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/18/常用正则表达式/" itemprop="url">常用正则表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-18T11:21:21+08:00">
+                2018-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/regex/" itemprop="url" rel="index">
+                    <span itemprop="name">regex</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="常用正则表达式"><a href="#常用正则表达式" class="headerlink" title="常用正则表达式"></a>常用正则表达式</h1><h2 id="匹配双字节字符-包括汉字在内-：-x00-xff"><a href="#匹配双字节字符-包括汉字在内-：-x00-xff" class="headerlink" title="匹配双字节字符(包括汉字在内)：[^x00-xff]"></a>匹配双字节字符(包括汉字在内)：[^x00-xff]</h2><p>评注：可以用来计算字符串的长度（一个双字节字符长度计2，ASCII字符计1） </p>
+<h2 id="匹配空白行的正则表达式：ns-r"><a href="#匹配空白行的正则表达式：ns-r" class="headerlink" title="匹配空白行的正则表达式：ns*r"></a>匹配空白行的正则表达式：ns*r</h2><p>评注：可以用来删除空白行 </p>
+<h2 id="匹配HTML标记的正则表达式：-lt-S-gt-gt-lt-gt"><a href="#匹配HTML标记的正则表达式：-lt-S-gt-gt-lt-gt" class="headerlink" title="匹配HTML标记的正则表达式：&lt;(S?)[^&gt;]&gt;.?|&lt;.? /&gt;"></a>匹配HTML标记的正则表达式：&lt;(S<em>?)[^&gt;]</em>&gt;.<em>?|&lt;.</em>? /&gt;</h2><p>评注：网上流传的版本太糟糕，上面这个也仅仅能匹配部分，对于复杂的嵌套标记依旧无能为力 </p>
+<h2 id="匹配首尾空白字符的正则表达式：-s-s"><a href="#匹配首尾空白字符的正则表达式：-s-s" class="headerlink" title="匹配首尾空白字符的正则表达式：^s|s$"></a>匹配首尾空白字符的正则表达式：^s<em>|s</em>$</h2><p>评注：可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式 </p>
+<h2 id="匹配Email地址的正则表达式：w-w-w-w-w-w"><a href="#匹配Email地址的正则表达式：w-w-w-w-w-w" class="headerlink" title="匹配Email地址的正则表达式：w+([-+.]w+)@w+([-.]w+).w+([-.]w+)*"></a>匹配Email地址的正则表达式：w+([-+.]w+)<em>@w+([-.]w+)</em>.w+([-.]w+)*</h2><p>评注：表单验证时很实用 </p>
+<h2 id="匹配网址URL的正则表达式：-a-zA-z-s"><a href="#匹配网址URL的正则表达式：-a-zA-z-s" class="headerlink" title="匹配网址URL的正则表达式：[a-zA-z]+://[^s]*"></a>匹配网址URL的正则表达式：[a-zA-z]+://[^s]*</h2><p>评注：网上流传的版本功能很有限，上面这个基本可以满足需求 </p>
+<h2 id="匹配帐号是否合法-字母开头，允许5-16字节，允许字母数字下划线-：-a-zA-Z-a-zA-Z0-9-4-15"><a href="#匹配帐号是否合法-字母开头，允许5-16字节，允许字母数字下划线-：-a-zA-Z-a-zA-Z0-9-4-15" class="headerlink" title="匹配帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]{4,15}$"></a>匹配帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]{4,15}$</h2><p>评注：表单验证时很实用 </p>
+<h2 id="匹配国内电话号码：d-3-d-8-d-4-d-7"><a href="#匹配国内电话号码：d-3-d-8-d-4-d-7" class="headerlink" title="匹配国内电话号码：d{3}-d{8}|d{4}-d{7}"></a>匹配国内电话号码：d{3}-d{8}|d{4}-d{7}</h2><p> 评注：匹配形式如 0511-4405222 或 021-87888822 </p>
+<h2 id="匹配腾讯QQ号：-1-9-0-9-4"><a href="#匹配腾讯QQ号：-1-9-0-9-4" class="headerlink" title="匹配腾讯QQ号：[1-9][0-9]{4,}"></a>匹配腾讯QQ号：[1-9][0-9]{4,}</h2><p>评注：腾讯QQ号从10000开始 </p>
+<h2 id="匹配中国邮政编码：-1-9-d-5-d"><a href="#匹配中国邮政编码：-1-9-d-5-d" class="headerlink" title="匹配中国邮政编码：[1-9]d{5}(?!d)"></a>匹配中国邮政编码：[1-9]d{5}(?!d)</h2><p>评注：中国邮政编码为6位数字 </p>
+<h2 id="匹配身份证：d-15-d-18"><a href="#匹配身份证：d-15-d-18" class="headerlink" title="匹配身份证：d{15}|d{18}"></a>匹配身份证：d{15}|d{18}</h2><p>评注：中国的身份证为15位或18位 </p>
+<h2 id="匹配ip地址：d-d-d-d"><a href="#匹配ip地址：d-d-d-d" class="headerlink" title="匹配ip地址：d+.d+.d+.d+"></a>匹配ip地址：d+.d+.d+.d+</h2><p>评注：提取ip地址时有用 </p>
+<h2 id="匹配特定数字："><a href="#匹配特定数字：" class="headerlink" title="匹配特定数字："></a>匹配特定数字：</h2><p>^[1-9]d<em>$　 　 //匹配正整数 <br><br>^-[1-9]d</em>$ 　 //匹配负整数 <br><br>^-?[1-9]d<em>$　　 //匹配整数 <br><br>^[1-9]d</em>|0$　 //匹配非负整数（正整数 + 0） <br><br>^-[1-9]d<em>|0$　　 //匹配非正整数（负整数 + 0） <br><br>^[1-9]d</em>.d<em>|0.d</em>[1-9]d<em>$　　 //匹配正浮点数 <br><br>^-([1-9]d</em>.d<em>|0.d</em>[1-9]d<em>)$　 //匹配负浮点数 <br><br>^-?([1-9]d</em>.d<em>|0.d</em>[1-9]d<em>|0?.0+|0)$　 //匹配浮点数 <br><br>^[1-9]d</em>.d<em>|0.d</em>[1-9]d<em>|0?.0+|0$　　 //匹配非负浮点数（正浮点数 + 0） <br><br>^(-([1-9]d</em>.d<em>|0.d</em>[1-9]d*))|0?.0+|0$　　//匹配非正浮点数（负浮点数 + 0） <br><br>评注：处理大量数据时有用，具体应用时注意修正 </p>
+<h2 id="匹配特定字符串："><a href="#匹配特定字符串：" class="headerlink" title="匹配特定字符串："></a>匹配特定字符串：</h2><p>^[A-Za-z]+$　　//匹配由26个英文字母组成的字符串 <br><br>^[A-Z]+$　　//匹配由26个英文字母的大写组成的字符串 <br><br>^[a-z]+$　　//匹配由26个英文字母的小写组成的字符串 <br><br>^[A-Za-z0-9]+$　　//匹配由数字和26个英文字母组成的字符串 <br><br>^w+$　　//匹配由数字、26个英文字母或者下划线组成的字符串 <br><br>在使用RegularExpressionValidator验证控件时的验证功能及其验证表达式介绍如下:<br>只能输入数字：“^[0-9]<em>$” <br><br>只能输入n位的数字：“^d{n}$” <br><br>只能输入至少n位数字：“^d{n,}$” <br><br>只能输入m-n位的数字：“^d{m,n}$” <br><br>只能输入零和非零开头的数字：“^(0|[1-9][0-9]</em>)$” <br><br>只能输入有两位小数的正实数：“^[0-9]+(.[0-9]{2})?$” <br><br>只能输入有1-3位小数的正实数：“^[0-9]+(.[0-9]{1,3})?$” <br><br>只能输入非零的正整数：“^+?[1-9][0-9]<em>$” <br><br>只能输入非零的负整数：“^-[1-9][0-9]</em>$” <br><br>只能输入长度为3的字符：“^.{3}$” <br><br>只能输入由26个英文字母组成的字符串：“^[A-Za-z]+$” <br><br>只能输入由26个大写英文字母组成的字符串：“^[A-Z]+$” <br><br>只能输入由26个小写英文字母组成的字符串：“^[a-z]+$” <br><br>只能输入由数字和26个英文字母组成的字符串：“^[A-Za-z0-9]+$” <br><br>只能输入由数字、26个英文字母或者下划线组成的字符串：“^w+$” <br><br>验证用户密码:“^[a-zA-Z]w{5,17}$”正确格式为：以字母开头，长度在6-18之间， <br><br>只能包含字符、数字和下划线。 <br><br>验证是否含有^%&amp;’,;=?$”等字符：“[^%&amp;’,;=?$x22]+” <br><br>只能输入汉字：“^[u4e00-u9fa5],{0,}$” <br><br>验证Email地址：“^w+[-+.]w+)<em>@w+([-.]w+)</em>.w+([-.]w+)<em>$” <br><br>验证InternetURL：“^http://([w-]+.)+[w-]+(/[w-./?%&amp;=]</em>)?$” <br><br>验证电话号码：“^((d{3,4})|d{3,4}-)?d{7,8}$” <br><br>正确格式为：“XXXX-XXXXXXX”，“XXXX-XXXXXXXX”，“XXX-XXXXXXX”， <br><br>“XXX-XXXXXXXX”，“XXXXXXX”，“XXXXXXXX”。<br>验证身份证号（15位或18位数字）：“^d{15}|d{}18$” <br><br>验证一年的12个月：“^(0?[1-9]|1[0-2])$”正确格式为：“01”-“09”和“1”“12” <br><br>验证一个月的31天：“^((0?[1-9])|((1|2)[0-9])|30|31)$” <br><br>正确格式为：“01”“09”和“1”“31”。 <br><br>匹配中文字符的正则表达式： [u4e00-u9fa5] <br><br>匹配双字节字符(包括汉字在内)：[^x00-xff] <br><br>匹配空行的正则表达式：n[s| ]<em>r <br><br>匹配HTML标记的正则表达式：/&lt;(.</em>)&gt;.<em>|&lt;(.</em>) /&gt;/ <br><br>匹配首尾空格的正则表达式：(^s<em>)|(s</em>$) <br><br>匹配Email地址的正则表达式：w+([-+.]w+)<em>@w+([-.]w+)</em>.w+([-.]w+)<em> <br><br>匹配网址URL的正则表达式：http://([w-]+.)+[w-]+(/[w- ./?%&amp;=]</em>)? <br></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/a.jpg" alt="Mr H">
+            
+              <p class="site-author-name" itemprop="name">Mr H</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr H</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
