@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="命令1maven在执行一个生命周期的命令的是时候将会执行之前的所有生命周期操作，比如执行mvn install，会执行前面一系列的动作包括 compile , package , test 等 mvn clean1执行mvn clean可将根目录下生成的target文件移除 mvn package1对项目进行打包，例如打包位jar文件或war文件,and so on...... maven bui">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-14T03:54:40.626Z">
+<meta property="og:updated_time" content="2019-01-13T13:52:46.752Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="maven总结">
 <meta name="twitter:description" content="命令1maven在执行一个生命周期的命令的是时候将会执行之前的所有生命周期操作，比如执行mvn install，会执行前面一系列的动作包括 compile , package , test 等 mvn clean1执行mvn clean可将根目录下生成的target文件移除 mvn package1对项目进行打包，例如打包位jar文件或war文件,and so on...... maven bui">
@@ -392,7 +392,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">打包时，跳过测试阶段</span><br></pre></td></tr></table></figure>
 <p><strong>mvn dependency:sources</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">取所有在POM中的的source code</span><br></pre></td></tr></table></figure></p>
 <p><strong>mvn dependency:resolve -Dclassifier=javadoc</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">取所有在POM中的的source Javadocs</span><br></pre></td></tr></table></figure></p>
-<h2 id="pom文件"><a href="#pom文件" class="headerlink" title="pom文件"></a>pom文件</h2>
+<p>**mvn install:install-file -DgroupId=com.heng -DartifactId=elasticsearch-sql-5.5.1.0 -Dversion=20190113 -Dpackaging=jar -Dfile=elasticsearch-sql-5.5.1.0.jar<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将jar包安装到本地</span><br></pre></td></tr></table></figure></p>
+<h1 id="pom文件"><a href="#pom文件" class="headerlink" title="pom文件"></a>pom文件</h1>
       
     </div>
     
@@ -431,6 +432,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/16/html5标签总结/" rel="prev" title="html5标签总结">
+                html5标签总结 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -509,7 +514,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -564,7 +569,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#命令"><span class="nav-number">1.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pom文件"><span class="nav-number">1.1.</span> <span class="nav-text">pom文件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#命令"><span class="nav-number">1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pom文件"><span class="nav-number">2.</span> <span class="nav-text">pom文件</span></a></li></ol></div>
             
 
           </div>
@@ -584,7 +589,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
